@@ -1,0 +1,8 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#09090B" />
+  <path d="M25 30V70M25 50H45M45 30V70" stroke="#06B6D4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M55 30V70M55 50H75M75 30V70" stroke="#06B6D4" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="50" cy="50" r="4" fill="#67E8F9">
+    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+  </circle>
+</svg>
