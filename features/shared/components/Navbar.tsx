@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/constants';
@@ -10,7 +10,32 @@ import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hash, setHash] = useState('');
+
+  useEffect(() => {
+    if (pathname !== '/') setHash('');
+  }, [pathname]);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.startsWith('/#')) {
+      setHash('');
+      return;
+    }
+    e.preventDefault();
+    const id = href.slice(2);
+    if (pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      history.pushState(null, '', `#${id}`);
+      setHash(`#${id}`);
+    } else {
+      router.push(href);
+    }
+  };
 
   return (
     <nav className='fixed top-0 w-full z-50 bg-[#09090b]/60 backdrop-blur-xl border-b border-[#494551]/20 shadow-sm'>
@@ -25,13 +50,14 @@ const Navbar = () => {
 
         {/* Desktop nav links */}
         <div className='hidden md:flex items-center gap-8'>
-          {navLinks.map(({ href, label }) => (
+          {navLinks.map(({ href, label, isActive }) => (
             <Link
               key={href}
               href={href}
+              onClick={(e) => handleNavClick(e, href)}
               className={cn(
                 'text-sm font-medium transition-colors cursor-pointer',
-                pathname === href
+                isActive(pathname, hash)
                   ? 'text-[#06b6d4] border-b-2 border-[#06b6d4] pb-0.5'
                   : 'text-[#cbc4d2] hover:text-[#06b6d4]',
               )}
@@ -92,14 +118,17 @@ const Navbar = () => {
             transition={{ duration: 0.18, ease: 'easeOut' }}
             className='md:hidden bg-[#1d1b20]/95 backdrop-blur-xl border-t border-[#494551]/20 px-8 py-5 flex flex-col gap-4'
           >
-            {navLinks.map(({ href, label }) => (
+            {navLinks.map(({ href, label, isActive }) => (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => {
+                  handleNavClick(e, href);
+                  setMobileOpen(false);
+                }}
                 className={cn(
                   'text-base font-medium py-1 transition-colors',
-                  pathname === href
+                  isActive(pathname, hash)
                     ? 'text-[#06b6d4]'
                     : 'text-[#cbc4d2] hover:text-[#06b6d4]',
                 )}

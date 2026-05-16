@@ -72,7 +72,7 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 ## Phase 2 — Home Page
 
 - [x] Build `HeroSection` component — name, title, short bio, CTA buttons, Framer Motion entrance animation
-- [ ] Build `AboutSection` component — about text + tech stack badges, stagger animation
+- [x] Build `AboutSection` component — about text + tech stack badges, stagger animation
 - [ ] Build `ProjectsPreview` component — 2 featured project cards with hover animation
 - [ ] Build `CTABanner` component — "Want to know more?" section
 - [ ] Assemble Home page in `app/page.tsx`

@@ -1,6 +1,7 @@
 export interface NavLink {
   href: string;
   label: string;
+  isActive: (pathname: string, hash: string) => boolean;
 }
 
 export interface Project {
