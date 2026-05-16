@@ -9,7 +9,7 @@ import {
 } from '@/features/home/lib/animations';
 import type { Project } from '@/features/shared/types';
 import { projects } from '@/constants';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 const badgeColors: Record<string, string> = {
@@ -113,7 +113,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
 const ProjectsPreview = () => {
   return (
-    <section className='px-8 py-24 max-w-7xl mx-auto'>
+    <section id='projects' className='px-8 py-24 max-w-7xl mx-auto'>
       {/* Header */}
       <div className='flex flex-col md:flex-row justify-between items-end gap-4 mb-12'>
         <div>

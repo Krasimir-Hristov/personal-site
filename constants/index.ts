@@ -3,9 +3,13 @@ import { NavLink, Project } from '@/features/shared/types';
 // Navbar links ---> used in Navbar.tsx
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home', isActive: (p, h) => p === '/' && !h },
-  { href: '/#projects', label: 'Projects', isActive: (p) => p === '/projects' },
   { href: '/#about', label: 'About Me', isActive: (_, h) => h === '#about' },
-  { href: '/#contact', label: 'Contact', isActive: (p) => p === '/contact' },
+  {
+    href: '/#projects',
+    label: 'Projects',
+    isActive: (_, h) => h === '#projects',
+  },
+  { href: '/contact', label: 'Contact', isActive: (p) => p === '/contact' },
 ];
 
 // Footer social links ---> used in Footer.tsx

@@ -15,7 +15,38 @@ const Navbar = () => {
   const [hash, setHash] = useState('');
 
   useEffect(() => {
-    if (pathname !== '/') setHash('');
+    if (pathname !== '/') {
+      setHash('');
+      return;
+    }
+
+    const sectionIds = navLinks
+      .filter((l) => l.href.startsWith('/#'))
+      .map((l) => l.href.slice(2));
+
+    const OFFSET = 80;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY + OFFSET;
+
+      const sections = sectionIds
+        .map((id) => ({
+          id,
+          top: document.getElementById(id)?.offsetTop ?? Infinity,
+        }))
+        .sort((a, b) => a.top - b.top);
+
+      let active = '';
+      for (const { id, top } of sections) {
+        if (top <= scrollY) active = `#${id}`;
+      }
+      setHash(active);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
 
   const handleNavClick = (
