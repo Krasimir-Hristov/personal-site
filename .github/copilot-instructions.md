@@ -53,7 +53,7 @@ import { StreamingTextResponse, OpenAIStream } from 'ai'; // deprecated
 
 - Install: `npx shadcn@latest add <component>`
 - Never edit `components/ui/` files directly
-- Use `cn()` from `features/shared/lib/utils.ts`
+- Use `cn()` from `lib/utils.ts` (import as `@/lib/utils`)
 
 ## Rate Limiting
 
@@ -112,7 +112,8 @@ Always read `implementationPlan.md` in the root for full architecture context be
 
 - All feature code lives in `features/<feature-name>/`
 - Each feature has `components/` and optionally `lib/` and `data/`
-- Shared utilities go in `features/shared/lib/`
+- Shared utilities go in `features/shared/lib/` (supabase, rate-limiter, etc.)
+- Shared types go in `features/shared/types.ts`
 - Shared UI components go in `features/shared/components/`
 - Next.js pages in `app/` only import from `features/`
 
@@ -121,7 +122,7 @@ Always read `implementationPlan.md` in the root for full architecture context be
 - React components: `PascalCase.tsx`
 - Utility functions: `camelCase.ts`
 - API routes: `app/api/<resource>/route.ts`
-- Types: define in `features/shared/lib/types.ts` or co-locate with the feature
+- Types: define in `features/shared/types.ts` or co-locate with the feature
 
 ---
 
@@ -146,7 +147,7 @@ Always read `implementationPlan.md` in the root for full architecture context be
 
 - Use Tailwind utility classes, not inline styles
 - Dark mode via `class` strategy (already configured)
-- Use `cn()` helper (from `features/shared/lib/utils.ts`) for conditional classes
+- Use `cn()` helper (from `lib/utils.ts`) for conditional classes
 - Color palette: dark backgrounds (`zinc-900`, `zinc-950`), accents (`violet-500`, `violet-600`)
 
 ### shadcn/ui

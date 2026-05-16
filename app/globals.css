@@ -57,31 +57,57 @@
   --card-foreground: #e6e0e9;
   --popover: #1d1b20;
   --popover-foreground: #e6e0e9;
-  --primary: #cfbcff;
-  --primary-foreground: #22005d;
-  --secondary: #4d4465;
-  --secondary-foreground: #cdc0e9;
+  --primary: #06b6d4;
+  --primary-foreground: #ffffff;
+  --secondary: #7c7296;
+  --secondary-foreground: #ffffff;
   --muted: #36343a;
-  --muted-foreground: #948e9c;
+  --muted-foreground: #79767d;
   --accent: #06b6d4;
   --accent-foreground: #09090b;
   --destructive: oklch(0.704 0.191 22.216);
   --border: #494551;
   --input: #36343a;
-  --ring: #cfbcff;
+  --ring: #06b6d4;
   --radius: 0.5rem;
 
   /* Sidebar tokens */
   --sidebar: #1d1b20;
   --sidebar-foreground: #e6e0e9;
-  --sidebar-primary: #cfbcff;
-  --sidebar-primary-foreground: #22005d;
+  --sidebar-primary: #06b6d4;
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #36343a;
   --sidebar-accent-foreground: #e6e0e9;
   --sidebar-border: #494551;
-  --sidebar-ring: #cfbcff;
+  --sidebar-ring: #06b6d4;
 
-  /* Design system tokens */
+  /* Design system brand tokens */
+  --color-primary: #06b6d4;
+  --color-primary-light: #c4b5f4;
+  --color-primary-dark: #4a3380;
+  --color-primary-container: #4a3380;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #e9ddff;
+
+  --color-secondary: #7c7296;
+  --color-secondary-light: #d0cbdc;
+  --color-secondary-dark: #3a3548;
+  --color-secondary-container: #3a3548;
+  --color-on-secondary: #ffffff;
+
+  --color-tertiary: #06b6d4;
+  --color-tertiary-light: #f0e0c0;
+  --color-tertiary-dark: #7a5a1a;
+  --color-tertiary-container: #7a5a1a;
+  --color-on-tertiary: #ffffff;
+
+  --color-neutral: #79767d;
+  --color-neutral-light: #e0dede;
+  --color-neutral-dark: #3a3838;
+
+  --color-cyan-accent: #06b6d4;
+
+  /* Surface scale */
   --surface: #141218;
   --surface-dim: #141218;
   --surface-bright: #3b383e;
@@ -92,14 +118,8 @@
   --surface-container-highest: #36343a;
   --on-surface: #e6e0e9;
   --on-surface-variant: #cbc4d2;
-  --outline: #948e9c;
+  --outline: #79767d;
   --outline-variant: #494551;
-  --primary-color: #cfbcff;
-  --primary-container: #6750a4;
-  --on-primary: #381e72;
-  --tertiary: #e7c365;
-  --tertiary-container: #c9a74d;
-  --cyan-accent: #06b6d4;
 }
 
 body {

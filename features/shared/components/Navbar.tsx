@@ -4,13 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/features/shared/lib/utils';
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/contact', label: 'Contact' },
-];
+import { cn } from '@/lib/utils';
+import { navLinks } from '@/constants';
+import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -22,7 +18,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           href='/'
-          className='font-bold text-2xl text-[#cfbcff] tracking-tight'
+          className='font-bold text-2xl text-[#06b6d4] tracking-tight cursor-pointer'
         >
           KH
         </Link>
@@ -34,10 +30,10 @@ const Navbar = () => {
               key={href}
               href={href}
               className={cn(
-                'text-sm font-medium transition-colors',
+                'text-sm font-medium transition-colors cursor-pointer',
                 pathname === href
-                  ? 'text-[#cfbcff] border-b-2 border-[#cfbcff] pb-0.5'
-                  : 'text-[#cbc4d2] hover:text-[#cfbcff]',
+                  ? 'text-[#06b6d4] border-b-2 border-[#06b6d4] pb-0.5'
+                  : 'text-[#cbc4d2] hover:text-[#06b6d4]',
               )}
             >
               {label}
@@ -49,13 +45,13 @@ const Navbar = () => {
         <div className='flex items-center gap-4'>
           <Link
             href='/contact'
-            className='hidden md:block bg-[#06b6d4] text-[#09090b] px-6 py-2 font-bold rounded text-sm hover:bg-cyan-400 active:scale-95 transition-all'
+            className='hidden md:block bg-[#06b6d4] text-[#09090b] px-6 py-2 font-bold rounded text-sm hover:bg-cyan-400 active:scale-95 transition-all cursor-pointer'
           >
-            Hire Me
+            Contact Me
           </Link>
 
           {/* Hamburger */}
-          <button
+          <Button
             className='md:hidden text-[#e6e0e9] p-2'
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label='Toggle navigation menu'
@@ -82,7 +78,7 @@ const Navbar = () => {
                 </>
               )}
             </motion.svg>
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -104,8 +100,8 @@ const Navbar = () => {
                 className={cn(
                   'text-base font-medium py-1 transition-colors',
                   pathname === href
-                    ? 'text-[#cfbcff]'
-                    : 'text-[#cbc4d2] hover:text-[#cfbcff]',
+                    ? 'text-[#06b6d4]'
+                    : 'text-[#cbc4d2] hover:text-[#06b6d4]',
                 )}
               >
                 {label}

@@ -61,8 +61,8 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 - [x] Initialize shadcn/ui (`npx shadcn@latest init`)
 - [x] Install Framer Motion (`npm install framer-motion`)
 - [x] Configure Tailwind with design system colors and fonts (from design files)
-- [x] Create `features/shared/lib/utils.ts` — export `cn()` helper
-- [x] Create `features/shared/lib/types.ts` — shared TypeScript types
+- [x] Create `lib/utils.ts` — export `cn()` helper (shadcn, used via `@/lib/utils`)
+- [x] Create `features/shared/types.ts` — shared TypeScript types
 - [x] Build `Navbar` component in `features/shared/components/`
 - [x] Build `Footer` component in `features/shared/components/`
 - [x] Create root layout (`app/layout.tsx`) with Navbar + Footer + dark theme
