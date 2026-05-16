@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/constants';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -76,7 +77,7 @@ const Navbar = () => {
           href='/'
           className='font-bold text-2xl text-[#06b6d4] tracking-tight cursor-pointer'
         >
-          KH
+          <Image src='/images/logo.png' alt='Logo' width={40} height={40} />
         </Link>
 
         {/* Desktop nav links */}
