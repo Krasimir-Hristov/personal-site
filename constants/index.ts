@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
-
+import { NavLink } from '@/features/shared/types';
 // Navbar links ---> used in Navbar.tsx
-export const navLinks = [
+export const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
   { href: '/contact', label: 'Contact' },
