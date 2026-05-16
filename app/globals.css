@@ -1,18 +1,146 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Fixed dark theme — no light mode */
+:root {
+  /* shadcn base tokens */
+  --background: #09090b;
+  --foreground: #e6e0e9;
+  --card: #211f24;
+  --card-foreground: #e6e0e9;
+  --popover: #1d1b20;
+  --popover-foreground: #e6e0e9;
+  --primary: #cfbcff;
+  --primary-foreground: #22005d;
+  --secondary: #4d4465;
+  --secondary-foreground: #cdc0e9;
+  --muted: #36343a;
+  --muted-foreground: #948e9c;
+  --accent: #06b6d4;
+  --accent-foreground: #09090b;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #494551;
+  --input: #36343a;
+  --ring: #cfbcff;
+  --radius: 0.5rem;
+
+  /* Sidebar tokens */
+  --sidebar: #1d1b20;
+  --sidebar-foreground: #e6e0e9;
+  --sidebar-primary: #cfbcff;
+  --sidebar-primary-foreground: #22005d;
+  --sidebar-accent: #36343a;
+  --sidebar-accent-foreground: #e6e0e9;
+  --sidebar-border: #494551;
+  --sidebar-ring: #cfbcff;
+
+  /* Design system tokens */
+  --surface: #141218;
+  --surface-dim: #141218;
+  --surface-bright: #3b383e;
+  --surface-container-lowest: #0f0d13;
+  --surface-container-low: #1d1b20;
+  --surface-container: #211f24;
+  --surface-container-high: #2b292f;
+  --surface-container-highest: #36343a;
+  --on-surface: #e6e0e9;
+  --on-surface-variant: #cbc4d2;
+  --outline: #948e9c;
+  --outline-variant: #494551;
+  --primary-color: #cfbcff;
+  --primary-container: #6750a4;
+  --on-primary: #381e72;
+  --tertiary: #e7c365;
+  --tertiary-container: #c9a74d;
+  --cyan-accent: #06b6d4;
 }
 
 body {
-  background-color: #09090b;
-  color: #e6e0e9;
-  font-family: var(--font-geist-sans), Inter, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), var(--font-inter), sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
   background-color: #06b6d4;
   color: #09090b;
+}
+
+/* Glass card utility */
+.glass-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+}
+
+/* Cyan glow utility */
+.cyan-glow {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+}
+
+/* Circuit line accent */
+.circuit-line {
+  height: 1px;
+  background: linear-gradient(90deg, #06b6d4, transparent);
+  width: 60px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
 }
