@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Terminal, ArrowRight, Bot, Download } from 'lucide-react';
@@ -7,7 +8,6 @@ import {
   containerVariants,
   itemVariants,
 } from '@/features/home/lib/animations';
-import NeuralNetworkSVG from '@/features/home/components/hero/NeuralNetworkSVG';
 
 const HeroSection = () => {
   return (
@@ -100,7 +100,14 @@ const HeroSection = () => {
             className='absolute inset-0 bg-[#06b6d4]/5 blur-[100px] rounded-full'
             aria-hidden='true'
           />
-          <NeuralNetworkSVG />
+          <Image
+            src='/images/hero-section.png'
+            alt='AI brain visualization — glowing cyan neural network'
+            width={560}
+            height={420}
+            priority
+            className='relative z-10 w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(6,182,212,0.3)]'
+          />
         </motion.div>
       </div>
     </section>
