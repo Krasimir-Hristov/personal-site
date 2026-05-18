@@ -75,9 +75,9 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 - [x] Build `AboutSection` component — about text + tech stack badges, stagger animation
 - [x] Build `ProjectsPreview` component — 2 featured project cards with hover animation
 - [x] Build `CTABanner` component — "Want to know more?" section
-- [ ] Assemble Home page in `app/page.tsx`
-- [ ] Add SEO metadata (`title`, `description`, `openGraph`, `twitter`)
-- [ ] Add JSON-LD structured data for homepage
+- [x] Assemble Home page in `app/page.tsx`
+- [x] Add SEO metadata (`title`, `description`, `openGraph`, `twitter`)
+- [x] Add JSON-LD structured data for homepage
 
 ---
 

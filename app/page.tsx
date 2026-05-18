@@ -23,9 +23,36 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      name: 'Krasimir Hristov',
+      url: 'https://www.krasimirxristov.com/',
+      jobTitle: 'Web Developer & AI Engineer',
+      sameAs: [
+        'https://github.com/Krasimir-Hristov',
+        'https://www.linkedin.com/in/krasimir-hristov/',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Krasimir Hristov — Web Developer & AI Engineer',
+      url: 'https://www.krasimirxristov.com/',
+      description:
+        'Portfolio of Krasimir Hristov — full-stack web developer and AI engineer specializing in Next.js, TypeScript, and RAG systems.',
+    },
+  ],
+};
+
 const Home = () => {
   return (
     <main>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <HeroSection />
       <AboutSection />
       <ProjectsPreview />
