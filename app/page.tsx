@@ -1,6 +1,7 @@
 import HeroSection from '@/features/home/components/HeroSection';
 import AboutSection from '@/features/home/components/AboutSection';
 import ProjectsPreview from '@/features/home/components/ProjectsPreview';
+import CTABanner from '@/features/home/components/CTABanner';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ const Home = () => {
       <HeroSection />
       <AboutSection />
       <ProjectsPreview />
+      <CTABanner />
     </main>
   );
 };
