@@ -19,7 +19,7 @@ const ProjectsFilter = ({ active, onChange }: ProjectsFilterProps) => {
           key={filter}
           onClick={() => onChange(filter)}
           className={cn(
-            'px-4 py-1.5 rounded-full text-sm font-medium transition-all',
+            'px-4 py-1.5 rounded-full text-sm font-medium cursor-pointer transition-all',
             active === filter
               ? 'bg-[#cfbcff] text-[#22005d]'
               : 'text-[#cbc4d2] hover:bg-white/5 border border-[#494551]/40',
