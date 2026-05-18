@@ -66,7 +66,7 @@ export const techStack = [
   { label: 'Vercel', color: 'text-[#e6e0e9]' }, // Vercel white
 ];
 
-// Projects data ---> used in ProjectsPreview.tsx
+// Projects data
 export const projects: Project[] = [
   {
     id: 'savage-ai',
@@ -85,6 +85,7 @@ export const projects: Project[] = [
     demoUrl: 'https://savage-ai-tau.vercel.app/',
     badge: 'AI / Chat',
     featured: true,
+    category: ['AI Tools', 'Web Apps'],
   },
   {
     id: 'axon',
@@ -102,6 +103,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Krasimir-Hristov/AXON',
     badge: 'AI / Assistant',
     featured: true,
+    category: ['AI Tools'],
   },
   {
     id: 'freelance-1',
@@ -111,6 +113,7 @@ export const projects: Project[] = [
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     badge: 'Freelance',
     featured: false,
+    category: ['Web Apps'],
   },
   {
     id: 'freelance-2',
@@ -120,5 +123,6 @@ export const projects: Project[] = [
     techStack: ['React', 'TypeScript', 'Tailwind CSS'],
     badge: 'Freelance',
     featured: false,
+    category: ['Web Apps'],
   },
 ];

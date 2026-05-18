@@ -14,6 +14,7 @@ export interface Project {
   imageUrl?: string;
   badge?: string;
   featured: boolean;
+  category: string[];
 }
 
 export interface SiteSettings {

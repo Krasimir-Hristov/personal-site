@@ -28,7 +28,7 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 | Route         | Description                                                |
 | ------------- | ---------------------------------------------------------- |
-| `/`           | Home — Hero, About, Tech Stack, Projects preview, CTAs     |
+| `/`           | Home — Hero, About, Tech Stack, Projects, CTAs             |
 | `/projects`   | Projects — cards with details, demo + GitHub links         |
 | `/contact`    | Contact form → email to Krasimir via Resend                |
 | `/admin`      | Admin Dashboard — protected, site content management       |
@@ -83,12 +83,12 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ## Phase 3 — Static Pages
 
-### Projects Page (`/projects`)
+### Projects Page (`/projects`) — Removed (projects live in `/#projects` section on Home)
 
-- [ ] Create project data file `features/projects/data/projects.ts` — title, description, tech stack, demo URL, GitHub URL
-- [ ] Build `ProjectCard` component with Framer Motion hover effects
-- [ ] Assemble Projects page in `app/projects/page.tsx`
-- [ ] Add SEO metadata
+- [x] ~~Create project data file `features/projects/data/projects.ts`~~ — data in `constants/index.ts`
+- [x] Build `ProjectCard`, `ProjectsFilter`, `ProjectsList` components in `features/home/components/`
+- [x] ~~Assemble Projects page in `app/projects/page.tsx`~~ — removed, section lives on Home
+- [x] ~~Add SEO metadata~~ — home page metadata covers it
 
 ### Contact Page (`/contact`)
 

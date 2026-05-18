@@ -1,7 +1,7 @@
 import HeroSection from '@/features/home/components/HeroSection';
 import AboutSection from '@/features/home/components/AboutSection';
-import ProjectsPreview from '@/features/home/components/ProjectsPreview';
 import CTABanner from '@/features/home/components/CTABanner';
+import ProjectsList from '@/features/projects/components/ProjectsList';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -55,7 +55,17 @@ const Home = () => {
       />
       <HeroSection />
       <AboutSection />
-      <ProjectsPreview />
+      <section id='projects' className='px-8 py-24 max-w-7xl mx-auto'>
+        <div className='mb-10'>
+          <span className='font-mono text-xs text-[#06b6d4] uppercase tracking-widest block mb-3'>
+            Portfolio Archive
+          </span>
+          <h2 className='text-3xl md:text-4xl font-bold text-[#e6e0e9] tracking-tight'>
+            Projects
+          </h2>
+        </div>
+        <ProjectsList />
+      </section>
       <CTABanner />
     </main>
   );
