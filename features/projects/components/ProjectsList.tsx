@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { containerVariants } from '@/features/home/lib/animations';
 import { projects } from '@/constants';
 import ProjectCard from '@/features/projects/components/ProjectCard';
@@ -23,7 +23,7 @@ const ProjectsList = () => {
         <ProjectsFilter active={activeFilter} onChange={setActiveFilter} />
       </div>
 
-      <motion.div
+      <m.div
         key={activeFilter}
         variants={containerVariants}
         initial='hidden'
@@ -33,7 +33,7 @@ const ProjectsList = () => {
         {filtered.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
-      </motion.div>
+      </m.div>
     </div>
   );
 };

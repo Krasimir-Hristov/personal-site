@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/features/shared/components/Navbar';
 import Footer from '@/features/shared/components/Footer';
+import MotionProvider from '@/features/shared/components/MotionProvider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -54,9 +55,11 @@ const RootLayout = ({
       className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
     >
       <body className='min-h-full flex flex-col bg-[#09090b] text-[#e6e0e9]'>
-        <Navbar />
-        <div className='flex-1 pt-14'>{children}</div>
-        <Footer />
+        <MotionProvider>
+          <Navbar />
+          <div className='flex-1 pt-14'>{children}</div>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
@@ -26,7 +26,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     project;
 
   return (
-    <motion.div
+    <m.div
       variants={itemVariants}
       className='group relative glass-card rounded-xl overflow-hidden hover:shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-shadow duration-500 flex flex-col'
     >
@@ -101,7 +101,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           )}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
