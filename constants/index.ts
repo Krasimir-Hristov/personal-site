@@ -1,5 +1,11 @@
-import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaInternetExplorer,
+  FaLinkedin,
+  FaYoutube,
+} from 'react-icons/fa';
 import { NavLink, Project } from '@/features/shared/types';
+import { FaWebAwesome, FaWebflow } from 'react-icons/fa6';
 // Navbar links ---> used in Navbar.tsx
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home', isActive: (p, h) => p === '/' && !h },
@@ -15,19 +21,24 @@ export const navLinks: NavLink[] = [
 // Footer social links ---> used in Footer.tsx
 export const socialLinks = [
   {
-    href: 'https://github.com/krasimirHristov',
+    href: 'https://github.com/Krasimir-Hristov',
     icon: FaGithub,
     label: 'GitHub',
   },
   {
-    href: 'https://linkedin.com/in/krasimir-hristov',
+    href: 'https://www.linkedin.com/in/krasimir-hristov/',
     icon: FaLinkedin,
     label: 'LinkedIn',
   },
   {
-    href: 'https://youtube.com/@krasimirHristov',
+    href: 'https://www.youtube.com/@krasimirhristov6757',
     icon: FaYoutube,
     label: 'YouTube',
+  },
+  {
+    href: 'https://www.krasimirxristov.com/',
+    icon: FaInternetExplorer, // Replace with an appropriate icon for the personal website if desired
+    label: 'Website', // This is intentional to have a "Website" label with the YouTube icon, as per the original code. Adjust if needed.
   },
 ];
 
