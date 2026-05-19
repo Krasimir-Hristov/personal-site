@@ -87,12 +87,7 @@ const HeroSection = () => {
         </m.div>
 
         {/* Right column — neural network */}
-        <m.div
-          className='lg:col-span-5 relative flex justify-center items-center'
-          initial={{ scale: 0.92 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.7, ease: 'easeOut' as const, delay: 0.3 }}
-        >
+        <div className='lg:col-span-5 relative flex justify-center items-center'>
           <div
             className='absolute inset-0 bg-[#06b6d4]/5 blur-[100px] rounded-full'
             aria-hidden='true'
@@ -105,7 +100,7 @@ const HeroSection = () => {
             priority
             className='relative z-10 w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(6,182,212,0.3)]'
           />
-        </m.div>
+        </div>
       </div>
     </section>
   );
