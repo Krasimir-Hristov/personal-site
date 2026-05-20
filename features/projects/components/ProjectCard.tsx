@@ -23,7 +23,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
       />
 
       <div className='p-6 flex flex-col flex-1'>
-        <h3 className='text-lg font-bold text-[#e6e0e9] mb-2'>{title}</h3>
+        {badge && (
+          <span className='mb-2 self-start px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-white/5 border border-white/10 text-[#cbc4d2]'>
+            {badge}
+          </span>
+        )}
 
         <p className='text-sm text-[#cbc4d2] mb-4 leading-relaxed flex-1'>
           {description}

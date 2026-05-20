@@ -2,45 +2,51 @@ import { cn } from '@/lib/utils';
 
 const BADGE_THEMES: Record<
   string,
-  { from: string; via: string; to: string; accent: string }
+  { bg: string; blob1: string; blob2: string; blob3: string; accent: string }
 > = {
   'AI / Chat': {
-    from: 'from-cyan-950',
-    via: 'via-cyan-900/60',
-    to: 'to-slate-950',
-    accent: 'text-cyan-400',
+    bg: 'bg-[#020d10]',
+    blob1: 'bg-cyan-500/30',
+    blob2: 'bg-cyan-700/20',
+    blob3: 'bg-teal-400/15',
+    accent: 'text-cyan-300',
   },
   'AI / Assistant': {
-    from: 'from-violet-950',
-    via: 'via-violet-900/60',
-    to: 'to-slate-950',
-    accent: 'text-violet-400',
+    bg: 'bg-[#07040f]',
+    blob1: 'bg-violet-500/30',
+    blob2: 'bg-violet-700/20',
+    blob3: 'bg-purple-400/15',
+    accent: 'text-violet-300',
   },
   Freelance: {
-    from: 'from-amber-950',
-    via: 'via-amber-900/50',
-    to: 'to-slate-950',
-    accent: 'text-amber-400',
+    bg: 'bg-[#0f0a02]',
+    blob1: 'bg-amber-500/30',
+    blob2: 'bg-amber-700/20',
+    blob3: 'bg-yellow-400/15',
+    accent: 'text-amber-300',
   },
   'Full-Stack': {
-    from: 'from-blue-950',
-    via: 'via-blue-900/50',
-    to: 'to-slate-950',
-    accent: 'text-blue-400',
+    bg: 'bg-[#02060f]',
+    blob1: 'bg-blue-500/30',
+    blob2: 'bg-blue-700/20',
+    blob3: 'bg-sky-400/15',
+    accent: 'text-blue-300',
   },
   'Open Source': {
-    from: 'from-emerald-950',
-    via: 'via-emerald-900/50',
-    to: 'to-slate-950',
-    accent: 'text-emerald-400',
+    bg: 'bg-[#020f06]',
+    blob1: 'bg-emerald-500/30',
+    blob2: 'bg-emerald-700/20',
+    blob3: 'bg-green-400/15',
+    accent: 'text-emerald-300',
   },
 };
 
 const DEFAULT_THEME = {
-  from: 'from-zinc-900',
-  via: 'via-zinc-800/50',
-  to: 'to-slate-950',
-  accent: 'text-zinc-400',
+  bg: 'bg-[#09090b]',
+  blob1: 'bg-zinc-500/20',
+  blob2: 'bg-zinc-700/15',
+  blob3: 'bg-zinc-400/10',
+  accent: 'text-zinc-300',
 };
 
 interface ProjectBannerProps {
@@ -57,53 +63,53 @@ const ProjectBanner = ({ title, badge, className }: ProjectBannerProps) => {
     )?.[1] ??
     DEFAULT_THEME;
 
-  const initials = title
-    .split(' ')
-    .slice(0, 2)
-    .map((w) => w[0]?.toUpperCase() ?? '')
-    .join('');
-
   return (
     <div
       className={cn(
         'relative flex flex-col items-center justify-center overflow-hidden rounded-xl',
-        `bg-linear-to-br ${theme.from} ${theme.via} ${theme.to}`,
+        theme.bg,
         className,
       )}
     >
-      {/* grid overlay */}
+      {/* animated blobs */}
       <div
-        className='absolute inset-0 opacity-10'
+        className={cn(
+          'banner-blob-1 absolute -top-1/4 -left-1/4 w-3/4 h-3/4 rounded-full blur-3xl',
+          theme.blob1,
+        )}
+      />
+      <div
+        className={cn(
+          'banner-blob-2 absolute -bottom-1/4 -right-1/4 w-3/4 h-3/4 rounded-full blur-3xl',
+          theme.blob2,
+        )}
+      />
+      <div
+        className={cn(
+          'banner-blob-3 absolute top-1/4 right-1/3 w-1/2 h-1/2 rounded-full blur-2xl',
+          theme.blob3,
+        )}
+      />
+
+      {/* noise overlay */}
+      <div
+        className='absolute inset-0 opacity-[0.03] mix-blend-overlay'
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
         }}
       />
 
-      {/* initials */}
+      {/* title */}
       <span
         className={cn(
-          'relative z-10 font-black tracking-tight select-none',
+          'relative z-10 font-black tracking-tight select-none text-center px-6 leading-none',
           theme.accent,
-          'text-5xl',
+          'text-4xl md:text-5xl drop-shadow-lg',
         )}
       >
-        {initials}
+        {title}
       </span>
-
-      {/* badge pill */}
-      {badge && (
-        <span
-          className={cn(
-            'relative z-10 mt-3 px-2.5 py-0.5 rounded-full text-xs font-medium',
-            'bg-white/10 border border-white/10',
-            theme.accent,
-          )}
-        >
-          {badge}
-        </span>
-      )}
     </div>
   );
 };

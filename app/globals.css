@@ -184,3 +184,47 @@ body {
     box-shadow: 0 0 0 1px #06b6d4;
   }
 }
+
+@keyframes banner-blob-1 {
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(8%, -12%) scale(1.15);
+  }
+  66% {
+    transform: translate(-10%, 8%) scale(0.9);
+  }
+}
+@keyframes banner-blob-2 {
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(-12%, 10%) scale(0.85);
+  }
+  66% {
+    transform: translate(10%, -8%) scale(1.2);
+  }
+}
+@keyframes banner-blob-3 {
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  50% {
+    transform: translate(6%, 14%) scale(1.1);
+  }
+}
+
+.banner-blob-1 {
+  animation: banner-blob-1 9s ease-in-out infinite;
+}
+.banner-blob-2 {
+  animation: banner-blob-2 12s ease-in-out infinite;
+}
+.banner-blob-3 {
+  animation: banner-blob-3 7s ease-in-out infinite;
+}
