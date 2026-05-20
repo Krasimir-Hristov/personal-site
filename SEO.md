@@ -195,7 +195,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 // PROBLEM: Dynamic content injected above existing content
 // FIX: Reserve space with min-height / skeleton placeholders
-<div className='min-h-[200px]'>
+<div className='min-h-50'>
   {data ? <Content /> : <Skeleton />}
 </div>
 
@@ -721,7 +721,7 @@ Google uses mobile-first indexing — the mobile version of your site is the pri
 // Ensure it is NOT overridden anywhere
 
 // Touch targets — minimum 44×44px
-<button className='min-h-[44px] min-w-[44px] p-3'>...</button>
+<button className='min-h-11 min-w-11 p-3'>...</button>
 
 // Avoid intrusive interstitials (pop-ups that block content on mobile)
 // Never use full-screen modals on page load on mobile
