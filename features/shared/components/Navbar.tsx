@@ -40,7 +40,8 @@ const Navbar = () => {
         .sort((a, b) => a.top - b.top);
 
       const nearBottom =
-        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 50;
 
       if (nearBottom && sections.length > 0) {
         setHash(`#${sections[sections.length - 1].id}`);
@@ -75,7 +76,9 @@ const Navbar = () => {
       history.pushState(null, '', `#${id}`);
       setHash(`#${id}`);
       isNavigating.current = true;
-      setTimeout(() => { isNavigating.current = false; }, 900);
+      setTimeout(() => {
+        isNavigating.current = false;
+      }, 900);
     } else {
       router.push(href);
     }
