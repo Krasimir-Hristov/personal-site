@@ -16,7 +16,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
       variants={itemVariants}
       className='group relative glass-card rounded-xl overflow-hidden hover:shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-shadow duration-500 flex flex-col'
     >
-      <ProjectBanner title={title} badge={badge} className='aspect-video w-full' />
+      <ProjectBanner
+        title={title}
+        badge={badge}
+        className='aspect-video w-full'
+      />
 
       <div className='p-6 flex flex-col flex-1'>
         <h3 className='text-lg font-bold text-[#e6e0e9] mb-2'>{title}</h3>

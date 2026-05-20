@@ -2,7 +2,11 @@
 
 import { revalidatePath } from 'next/cache';
 import { sql } from '@/features/shared/lib/db';
-import { dbToProject, type DbProject, type Project } from '@/features/shared/types';
+import {
+  dbToProject,
+  type DbProject,
+  type Project,
+} from '@/features/shared/types';
 
 export const getProjects = async (): Promise<Project[]> => {
   const rows = await sql`
@@ -61,7 +65,9 @@ export const updateProject = async (
   }
 };
 
-export const deleteProject = async (id: string): Promise<{ error?: string }> => {
+export const deleteProject = async (
+  id: string,
+): Promise<{ error?: string }> => {
   try {
     await sql`DELETE FROM projects WHERE id = ${id}`;
     revalidatePath('/admin/projects');

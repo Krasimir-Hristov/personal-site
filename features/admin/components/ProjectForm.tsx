@@ -12,7 +12,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { createProject, updateProject } from '@/features/admin/lib/project-actions';
+import {
+  createProject,
+  updateProject,
+} from '@/features/admin/lib/project-actions';
 import type { Project } from '@/features/shared/types';
 
 interface ProjectFormProps {
@@ -77,12 +80,18 @@ const ProjectForm = ({ open, onClose, onSaved, project }: ProjectFormProps) => {
     const data = {
       title: form.title.trim(),
       description: form.description.trim(),
-      techStack: form.techStack.split(',').map((s) => s.trim()).filter(Boolean),
+      techStack: form.techStack
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean),
       githubUrl: form.githubUrl.trim() || undefined,
       demoUrl: form.demoUrl.trim() || undefined,
       badge: form.badge.trim() || undefined,
       featured: form.featured,
-      category: form.category.split(',').map((s) => s.trim()).filter(Boolean),
+      category: form.category
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean),
     };
 
     startTransition(async () => {
@@ -188,9 +197,7 @@ const ProjectForm = ({ open, onClose, onSaved, project }: ProjectFormProps) => {
         </div>
 
         <SheetFooter className='mt-8 flex flex-col gap-3'>
-          {error && (
-            <p className='text-sm text-red-400 text-center'>{error}</p>
-          )}
+          {error && <p className='text-sm text-red-400 text-center'>{error}</p>}
           <div className='flex gap-3'>
             <Button
               variant='outline'
