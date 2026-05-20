@@ -65,7 +65,7 @@ const HeroSection = () => {
           {/* CTAs */}
           <m.div variants={itemVariants} className='flex flex-wrap gap-4 mt-2'>
             <Link
-              href='/projects'
+              href='/#projects'
               className='bg-[#06b6d4] text-[#09090b] px-8 py-3 font-bold rounded-lg hover:brightness-110 shadow-[0_0_20px_rgba(6,182,212,0.25)] transition-all flex items-center gap-2 text-sm'
             >
               View Projects <ArrowRight size={15} />
