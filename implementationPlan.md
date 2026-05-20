@@ -102,32 +102,15 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ---
 
-## Phase 4 — Admin Dashboard
-
-### Auth
-
-- [ ] Install NextAuth.js (`npm install next-auth`)
-- [ ] Create `app/api/auth/[...nextauth]/route.ts` — credentials provider, validate against `ADMIN_PASSWORD` (bcrypt)
-- [ ] Create `proxy.ts` — protect all `/admin/*` routes, redirect to `/admin/login` if unauthenticated (`middleware.ts` is deprecated in Next.js v16, renamed to `proxy.ts`; export `proxy` function instead of `middleware`)
-- [ ] Build `AdminLoginPage` at `app/admin/login/page.tsx`
-
-### Dashboard
-
-- [ ] Build `AdminLayout` at `app/admin/layout.tsx` — sidebar nav, logout button
-- [ ] Build `AdminDashboardPage` at `app/admin/page.tsx` — overview stats
-- [ ] Build `AdminProjectsPage` at `app/admin/projects/page.tsx` — list, add, edit, delete projects (JSON file or in-memory store, Supabase later)
-- [ ] Build `ProjectForm` component — title, description, tech stack, demo URL, GitHub URL, featured flag
-- [ ] Build `AdminSettingsPage` at `app/admin/settings/page.tsx` — update site metadata (bio, social links)
-
----
-
-## Phase 5 — Contact & Email
+## Phase 4 — Contact & Email
 
 - [x] Set up Resend account, add `RESEND_API_KEY` and `CONTACT_EMAIL` to `.env.local`
 - [x] Wire up contact form API route (`app/api/contact/route.ts`) to Resend
 - [x] Test contact form end-to-end
 
 ---
+
+## Phase 5 — Admin Dashboard
 
 ## Phase 6 — Supabase + AI Features
 
@@ -153,6 +136,23 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 - [ ] Build `AdminDocumentsPage` at `app/admin/documents/page.tsx` — view, add, delete knowledge base documents
 - [ ] Build document upload / re-ingest UI
+
+---
+
+### Auth
+
+- [ ] Install NextAuth.js (`npm install next-auth`)
+- [ ] Create `app/api/auth/[...nextauth]/route.ts` — credentials provider, validate against `ADMIN_PASSWORD` (bcrypt)
+- [ ] Create `proxy.ts` — protect all `/admin/*` routes, redirect to `/admin/login` if unauthenticated (`middleware.ts` is deprecated in Next.js v16, renamed to `proxy.ts`; export `proxy` function instead of `middleware`)
+- [ ] Build `AdminLoginPage` at `app/admin/login/page.tsx`
+
+### Dashboard
+
+- [ ] Build `AdminLayout` at `app/admin/layout.tsx` — sidebar nav, logout button
+- [ ] Build `AdminDashboardPage` at `app/admin/page.tsx` — overview stats
+- [ ] Build `AdminProjectsPage` at `app/admin/projects/page.tsx` — list, add, edit, delete projects (JSON file or in-memory store, Supabase later)
+- [ ] Build `ProjectForm` component — title, description, tech stack, demo URL, GitHub URL, featured flag
+- [ ] Build `AdminSettingsPage` at `app/admin/settings/page.tsx` — update site metadata (bio, social links)
 
 ---
 
