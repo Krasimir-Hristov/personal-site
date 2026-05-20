@@ -168,3 +168,19 @@ body {
     @apply font-sans;
   }
 }
+
+@layer components {
+  .admin-input {
+    background-color: rgb(255 255 255 / 0.03);
+    border-color: #494551;
+    color: #e6e0e9;
+  }
+  .admin-input::placeholder {
+    color: #494551;
+  }
+  .admin-input:focus {
+    border-color: #06b6d4;
+    outline: none;
+    box-shadow: 0 0 0 1px #06b6d4;
+  }
+}

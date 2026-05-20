@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { href: '/admin', label: 'Dashboard' },
   { href: '/admin/projects', label: 'Projects' },
+  { href: '/admin/settings', label: 'Settings' },
 ];
 
 const AdminSidebar = () => {

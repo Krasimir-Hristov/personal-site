@@ -110,19 +110,19 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ### Auth
 
-- [ ] Install NextAuth.js (`npm install next-auth`) + bcrypt (`npm install bcryptjs @types/bcryptjs`)
-- [ ] Hash admin password: `node -e "require('bcryptjs').hash('your-password',12).then(console.log)"` ? put result in `ADMIN_PASSWORD`
-- [ ] Create `app/api/auth/[...nextauth]/route.ts` � credentials provider, `bcrypt.compare(input, ADMIN_PASSWORD)`
-- [ ] Create `proxy.ts` � protect `/admin/*`, redirect to `/admin/login` if no session cookie (`middleware.ts` is deprecated in Next.js v16)
-- [ ] Build `AdminLoginPage` at `app/admin/login/page.tsx`
+- [x] Install NextAuth.js (`npm install next-auth`) + bcrypt (`npm install bcryptjs @types/bcryptjs`)
+- [x] Hash admin password: `node -e "require('bcryptjs').hash('your-password',12).then(console.log)"` ? put result in `ADMIN_PASSWORD`
+- [x] Create `app/api/auth/[...nextauth]/route.ts` � credentials provider, `bcrypt.compare(input, ADMIN_PASSWORD)`
+- [x] Create `proxy.ts` � protect `/admin/*`, redirect to `/admin/login` if no session cookie (`middleware.ts` is deprecated in Next.js v16)
+- [x] Build `AdminLoginPage` at `app/admin/login/page.tsx`
 
 ### Dashboard Pages
 
-- [ ] Build `AdminLayout` at `app/admin/layout.tsx` � sidebar nav, logout button
-- [ ] Build `AdminDashboardPage` at `app/admin/page.tsx` � overview stats
-- [ ] Build `AdminProjectsPage` at `app/admin/projects/page.tsx` � list, add, edit, delete projects
-- [ ] Build `ProjectForm` component � title, description, tech stack, URLs, featured flag
-- [ ] Build `AdminSettingsPage` at `app/admin/settings/page.tsx` � bio, social links
+- [x] Build `AdminLayout` at `app/admin/layout.tsx` — sidebar nav, logout button
+- [x] Build `AdminDashboardPage` at `app/admin/page.tsx` — overview stats
+- [x] Build `AdminProjectsPage` at `app/admin/projects/page.tsx` — list, add, edit, delete projects
+- [x] Build `ProjectForm` component — title, description, tech stack, URLs, featured flag
+- [x] Build `AdminSettingsPage` at `app/admin/settings/page.tsx` — bio, social links
 
 ---
 
