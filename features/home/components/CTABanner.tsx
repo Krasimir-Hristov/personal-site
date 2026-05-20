@@ -50,10 +50,10 @@ const CTABanner = () => {
 
         <m.div variants={itemVariants}>
           <Link
-            href='/chatbot'
+            href='/#contact'
             className='inline-flex cursor-pointer items-center gap-2 bg-[#06b6d4] text-[#09090b] px-8 py-3 rounded-lg font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]'
           >
-            Ask my AI Assistant
+            Get in touch
             <MessageCircle size={18} />
           </Link>
         </m.div>

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { m } from 'framer-motion';
-import { Terminal, ArrowRight, Bot, Download } from 'lucide-react';
+import { Terminal, ArrowRight, Download } from 'lucide-react';
 import {
   containerVariants,
   itemVariants,
@@ -69,12 +69,6 @@ const HeroSection = () => {
               className='bg-[#06b6d4] text-[#09090b] px-8 py-3 font-bold rounded-lg hover:brightness-110 shadow-[0_0_20px_rgba(6,182,212,0.25)] transition-all flex items-center gap-2 text-sm'
             >
               View Projects <ArrowRight size={15} />
-            </Link>
-            <Link
-              href='/chatbot'
-              className='border border-[#06b6d4]/50 text-[#06b6d4] px-8 py-3 font-bold rounded-lg hover:bg-[#06b6d4]/10 transition-all flex items-center gap-2 text-sm'
-            >
-              Chat with AI <Bot size={15} />
             </Link>
             <a
               href='/cv.pdf'
