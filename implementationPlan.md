@@ -92,13 +92,13 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ### Contact Page (`/contact`)
 
-- [X] Build `ContactForm` component — Name, Email, Message fields + hidden honeypot field
-- [X] Add `useOptimistic` for immediate UI feedback on submit
-- [X] Create `app/api/contact/route.ts` — validate input with Zod, check rate limit, send via Resend
-- [X] Create `features/shared/lib/rate-limiter.ts` — in-memory IP rate limiter
-- [X] Apply rate limit: 3 submissions per IP per hour
-- [X] Assemble Contact page in `app/contact/page.tsx`
-- [X] Add SEO metadata
+- [x] Build `ContactForm` component — Name, Email, Message fields + hidden honeypot field
+- [x] Add `useOptimistic` for immediate UI feedback on submit
+- [x] Create `app/api/contact/route.ts` — validate input with Zod, check rate limit, send via Resend
+- [x] Create `features/shared/lib/rate-limiter.ts` — in-memory IP rate limiter
+- [x] Apply rate limit: 3 submissions per IP per hour
+- [x] Assemble Contact page in `app/contact/page.tsx`
+- [x] Add SEO metadata
 
 ---
 
@@ -108,7 +108,7 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 - [ ] Install NextAuth.js (`npm install next-auth`)
 - [ ] Create `app/api/auth/[...nextauth]/route.ts` — credentials provider, validate against `ADMIN_PASSWORD` (bcrypt)
-- [ ] Create `middleware.ts` — protect all `/admin/*` routes, redirect to `/admin/login` if unauthenticated
+- [ ] Create `proxy.ts` — protect all `/admin/*` routes, redirect to `/admin/login` if unauthenticated (`middleware.ts` is deprecated in Next.js v16, renamed to `proxy.ts`; export `proxy` function instead of `middleware`)
 - [ ] Build `AdminLoginPage` at `app/admin/login/page.tsx`
 
 ### Dashboard
@@ -123,9 +123,9 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ## Phase 5 — Contact & Email
 
-- [ ] Set up Resend account, add `RESEND_API_KEY` and `CONTACT_EMAIL` to `.env.local`
-- [ ] Wire up contact form API route (`app/api/contact/route.ts`) to Resend
-- [ ] Test contact form end-to-end
+- [x] Set up Resend account, add `RESEND_API_KEY` and `CONTACT_EMAIL` to `.env.local`
+- [x] Wire up contact form API route (`app/api/contact/route.ts`) to Resend
+- [x] Test contact form end-to-end
 
 ---
 
@@ -148,15 +148,6 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 - [ ] Build chatbot UI (`ChatWindow`, `ChatMessage`, `ChatInput`)
 - [ ] Assemble `/chatbot` page
 - [ ] Rate limit chat route: 5 req/IP/hour
-
-### AI Playground
-
-- [ ] Image Generator — `/api/playground/image` + `ImageGen` component
-- [ ] Text to Speech — `/api/playground/tts` + `TTSPlayer` component
-- [ ] Speech to Text — `/api/playground/stt` + `STTRecorder` component
-- [ ] Mini RAG Demo — `/api/playground/rag` + `MiniRAG` component
-- [ ] Assemble `/playground` page with tabs
-- [ ] Rate limit all playground routes: 5 req/IP/hour
 
 ### Admin: pgvector Management
 
