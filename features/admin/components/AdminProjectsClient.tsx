@@ -43,7 +43,7 @@ const AdminProjectsClient = () => {
 
       <div className='rounded-xl border border-[#494551] overflow-hidden'>
         <table className='w-full text-sm'>
-          <thead className='bg-white/[0.04]'>
+          <thead className='bg-white/04'>
             <tr>
               <th className='text-left px-5 py-3 text-[#cbc4d2] font-medium'>
                 Title
@@ -67,7 +67,7 @@ const AdminProjectsClient = () => {
             {projects.map((project) => (
               <tr
                 key={project.id}
-                className='hover:bg-white/[0.02] transition-colors'
+                className='hover:bg-white/02 transition-colors'
               >
                 <td className='px-5 py-4 text-[#e6e0e9] font-medium'>
                   {project.title}
