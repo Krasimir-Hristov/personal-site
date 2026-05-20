@@ -146,7 +146,7 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 - [ ] Create `proxy.ts` — protect all `/admin/*` routes, redirect to `/admin/login` if unauthenticated (`middleware.ts` is deprecated in Next.js v16, renamed to `proxy.ts`; export `proxy` function instead of `middleware`)
 - [ ] Build `AdminLoginPage` at `app/admin/login/page.tsx`
 
-### Dashboard
+## Phase 7 — Dashboard
 
 - [ ] Build `AdminLayout` at `app/admin/layout.tsx` — sidebar nav, logout button
 - [ ] Build `AdminDashboardPage` at `app/admin/page.tsx` — overview stats
@@ -156,7 +156,7 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ---
 
-## Phase 7 — Polish & Launch
+## Phase 8 — Polish & Launch
 
 ### Assets
 
