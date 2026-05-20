@@ -7,18 +7,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Krasimir Hristov — Web Developer & AI Engineer',
   description:
-    'Portfolio of Krasimir Hristov — full-stack web developer and AI engineer specializing in Next.js, TypeScript, and RAG systems.',
+    'Portfolio of Krasimir Hristov — full-stack web developer and AI engineer based in Stuttgart, Germany. Specializing in Next.js, TypeScript, and RAG systems. Available for remote work worldwide.',
   openGraph: {
     title: 'Krasimir Hristov — Web Developer & AI Engineer',
     description:
-      'Portfolio of Krasimir Hristov — full-stack web developer and AI engineer.',
+      'Full-stack web developer and AI engineer based in Stuttgart, Germany. Specializing in Next.js, TypeScript, and RAG systems.',
     images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Krasimir Hristov — Web Developer & AI Engineer',
     description:
-      'Portfolio of Krasimir Hristov — full-stack web developer and AI engineer.',
+      'Full-stack web developer and AI engineer based in Stuttgart, Germany. Next.js, TypeScript, RAG systems.',
     images: ['/og-image.png'],
   },
 };
@@ -31,6 +31,19 @@ const jsonLd = {
       name: 'Krasimir Hristov',
       url: 'https://www.krasimirxristov.com/',
       jobTitle: 'Web Developer & AI Engineer',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Wendlingen am Neckar',
+        addressRegion: 'Baden-Württemberg',
+        postalCode: '73240',
+        addressCountry: 'DE',
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Stuttgart' },
+        { '@type': 'State', name: 'Baden-Württemberg' },
+        { '@type': 'Country', name: 'Germany' },
+        'Remote',
+      ],
       sameAs: [
         'https://github.com/Krasimir-Hristov',
         'https://www.linkedin.com/in/krasimir-hristov/',
