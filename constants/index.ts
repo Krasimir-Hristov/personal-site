@@ -5,11 +5,17 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 import { NavLink, Project } from '@/features/shared/types';
-import { FaWebAwesome, FaWebflow } from 'react-icons/fa6';
+import { Database, Bot, BrainCircuit, Layers, Zap } from 'lucide-react';
+
 // Navbar links ---> used in Navbar.tsx
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home', isActive: (p, h) => p === '/' && !h },
   { href: '/#about', label: 'About Me', isActive: (_, h) => h === '#about' },
+  {
+    href: '/#specializations',
+    label: 'Specializations',
+    isActive: (_, h) => h === '#specializations',
+  },
   {
     href: '/#projects',
     label: 'Projects',
@@ -124,5 +130,40 @@ export const projects: Project[] = [
     badge: 'Freelance',
     featured: false,
     category: ['Web Apps'],
+  },
+];
+
+// Specializations data for Home page ---> used in SpecializationsSection.tsx
+
+export const specializations = [
+  {
+    icon: Database,
+    title: 'RAG Systems',
+    description:
+      'Vector search, semantic document retrieval and knowledge pipelines. Build Q&A systems that answer from your own data with precision.',
+  },
+  {
+    icon: Bot,
+    title: 'AI Chatbots',
+    description:
+      'Context-aware conversational AI with streaming responses, memory management, and custom personas built on modern LLMs.',
+  },
+  {
+    icon: BrainCircuit,
+    title: 'AI Agents',
+    description:
+      'Autonomous agents with tool-calling, multi-step reasoning, and real-world action execution. From research bots to workflow automation.',
+  },
+  {
+    icon: Layers,
+    title: 'Full-Stack Web Apps',
+    description:
+      'End-to-end Next.js applications — from database schema to deployed product. TypeScript, REST APIs, authentication, and responsive UIs.',
+  },
+  {
+    icon: Zap,
+    title: 'LLM Integration',
+    description:
+      'Connect any LLM to your product via OpenAI, Anthropic, or OpenRouter. Streaming, function calling, and rate limiting included.',
   },
 ];

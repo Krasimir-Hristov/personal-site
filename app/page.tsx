@@ -1,5 +1,6 @@
 import HeroSection from '@/features/home/components/HeroSection';
 import AboutSection from '@/features/home/components/AboutSection';
+import SpecializationsSection from '@/features/home/components/SpecializationsSection';
 import CTABanner from '@/features/home/components/CTABanner';
 import ProjectsList from '@/features/projects/components/ProjectsList';
 import type { Metadata } from 'next';
@@ -68,6 +69,7 @@ const Home = () => {
       />
       <HeroSection />
       <AboutSection />
+      <SpecializationsSection />
       <section id='projects' className='px-8 py-24 max-w-7xl mx-auto'>
         <div className='mb-10'>
           <span className='font-mono text-xs text-[#06b6d4] uppercase tracking-widest block mb-3'>
