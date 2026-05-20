@@ -92,13 +92,13 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ### Contact Page (`/contact`)
 
-- [ ] Build `ContactForm` component — Name, Email, Message fields + hidden honeypot field
-- [ ] Add `useOptimistic` for immediate UI feedback on submit
-- [ ] Create `app/api/contact/route.ts` — validate input with Zod, check rate limit, send via Resend
-- [ ] Create `features/shared/lib/rate-limiter.ts` — in-memory IP rate limiter
-- [ ] Apply rate limit: 3 submissions per IP per hour
-- [ ] Assemble Contact page in `app/contact/page.tsx`
-- [ ] Add SEO metadata
+- [X] Build `ContactForm` component — Name, Email, Message fields + hidden honeypot field
+- [X] Add `useOptimistic` for immediate UI feedback on submit
+- [X] Create `app/api/contact/route.ts` — validate input with Zod, check rate limit, send via Resend
+- [X] Create `features/shared/lib/rate-limiter.ts` — in-memory IP rate limiter
+- [X] Apply rate limit: 3 submissions per IP per hour
+- [X] Assemble Contact page in `app/contact/page.tsx`
+- [X] Add SEO metadata
 
 ---
 
