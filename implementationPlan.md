@@ -130,12 +130,12 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ### Neon Setup
 
-- [ ] Create Neon project at neon.com (free tier � 100 projects, pgvector included)
-- [ ] Enable `pgvector` extension: `CREATE EXTENSION vector;`
-- [ ] Create `documents` table (schema below)
-- [ ] Create `match_documents` SQL function (schema below)
-- [ ] Create `features/shared/lib/db.ts` � Neon PostgreSQL client (`npm install @neondatabase/serverless`)
-- [ ] Add `DATABASE_URL` to `.env.local`
+- [x] Create Neon project at neon.com (free tier � 100 projects, pgvector included)
+- [x] Enable `pgvector` extension: `CREATE EXTENSION vector;`
+- [x] Create `documents` table (schema below)
+- [x] Create `match_documents` SQL function (schema below)
+- [x] Create `features/shared/lib/db.ts` � Neon PostgreSQL client (`npm install @neondatabase/serverless`)
+- [x] Add `DATABASE_URL` to `.env.local`
 
 ### RAG Chatbot
 
@@ -145,15 +145,6 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 - [ ] Build chatbot UI: `ChatWindow`, `ChatMessage`, `ChatInput` in `features/chatbot/components/`
 - [ ] Assemble `/chatbot` page
 - [ ] Rate limit chat route: 5 req/IP/hour
-
-### AI Playground
-
-- [ ] Image Generator � `/api/playground/image` + `ImageGen` component
-- [ ] Text to Speech � `/api/playground/tts` + `TTSPlayer` component
-- [ ] Speech to Text � `/api/playground/stt` + `STTRecorder` component
-- [ ] Mini RAG Demo � `/api/playground/rag` + `MiniRAG` component
-- [ ] Assemble `/playground` page with tabs
-- [ ] Rate limit all playground routes: 5 req/IP/hour
 
 ### Admin: Knowledge Base Management
 
