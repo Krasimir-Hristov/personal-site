@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition, useEffect } from 'react';
 import {
   Sheet,
   SheetContent,
@@ -12,11 +12,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { createProject, updateProject } from '@/features/admin/lib/project-actions';
 import type { Project } from '@/features/shared/types';
 
 interface ProjectFormProps {
   open: boolean;
   onClose: () => void;
+  onSaved: () => void;
   project?: Project;
 }
 
@@ -31,8 +33,10 @@ const emptyForm = {
   category: '',
 };
 
-const ProjectForm = ({ open, onClose, project }: ProjectFormProps) => {
+const ProjectForm = ({ open, onClose, onSaved, project }: ProjectFormProps) => {
   const isEdit = !!project;
+  const [isPending, startTransition] = useTransition();
+  const [error, setError] = useState('');
 
   const [form, setForm] = useState({
     title: project?.title ?? '',
@@ -45,15 +49,53 @@ const ProjectForm = ({ open, onClose, project }: ProjectFormProps) => {
     category: project?.category.join(', ') ?? '',
   });
 
+  // reset form when project prop changes (switching between add/edit)
+  useEffect(() => {
+    setError('');
+    setForm({
+      title: project?.title ?? '',
+      description: project?.description ?? '',
+      techStack: project?.techStack.join(', ') ?? '',
+      githubUrl: project?.githubUrl ?? '',
+      demoUrl: project?.demoUrl ?? '',
+      badge: project?.badge ?? '',
+      featured: project?.featured ?? false,
+      category: project?.category.join(', ') ?? '',
+    });
+  }, [project, open]);
+
   const set = (field: keyof typeof emptyForm, value: string | boolean) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
   const handleSave = () => {
-    // Phase 6: wire to DB
-    alert(
-      `${isEdit ? 'Edit' : 'Add'} will be saved to database in Phase 6.\n\nTitle: ${form.title}`,
-    );
-    onClose();
+    if (!form.title.trim()) {
+      setError('Title is required.');
+      return;
+    }
+    setError('');
+
+    const data = {
+      title: form.title.trim(),
+      description: form.description.trim(),
+      techStack: form.techStack.split(',').map((s) => s.trim()).filter(Boolean),
+      githubUrl: form.githubUrl.trim() || undefined,
+      demoUrl: form.demoUrl.trim() || undefined,
+      badge: form.badge.trim() || undefined,
+      featured: form.featured,
+      category: form.category.split(',').map((s) => s.trim()).filter(Boolean),
+    };
+
+    startTransition(async () => {
+      const result = isEdit
+        ? await updateProject(project.id, data)
+        : await createProject(data);
+
+      if (result.error) {
+        setError(result.error);
+        return;
+      }
+      onSaved();
+    });
   };
 
   return (
@@ -145,25 +187,28 @@ const ProjectForm = ({ open, onClose, project }: ProjectFormProps) => {
           </label>
         </div>
 
-        <SheetFooter className='mt-8 flex gap-3'>
-          <Button
-            variant='outline'
-            onClick={onClose}
-            className='border-[#494551] text-[#cbc4d2] hover:bg-white/04 bg-transparent'
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={handleSave}
-            className='bg-[#06b6d4] hover:bg-[#0891b2] text-[#09090b] font-medium'
-          >
-            {isEdit ? 'Save changes' : 'Add project'}
-          </Button>
+        <SheetFooter className='mt-8 flex flex-col gap-3'>
+          {error && (
+            <p className='text-sm text-red-400 text-center'>{error}</p>
+          )}
+          <div className='flex gap-3'>
+            <Button
+              variant='outline'
+              onClick={onClose}
+              disabled={isPending}
+              className='border-[#494551] text-[#cbc4d2] hover:bg-white/04 bg-transparent'
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleSave}
+              disabled={isPending}
+              className='bg-[#06b6d4] hover:bg-[#0891b2] text-[#09090b] font-medium'
+            >
+              {isPending ? 'Saving…' : isEdit ? 'Save changes' : 'Add project'}
+            </Button>
+          </div>
         </SheetFooter>
-
-        <p className='mt-4 text-xs text-[#494551] text-center'>
-          Persistence wired to DB in Phase 6
-        </p>
       </SheetContent>
     </Sheet>
   );

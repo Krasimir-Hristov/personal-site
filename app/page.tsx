@@ -5,6 +5,7 @@ import CTABanner from '@/features/home/components/CTABanner';
 import ProjectsList from '@/features/projects/components/ProjectsList';
 import ContactInfo from '@/features/contact/components/ContactInfo';
 import ContactForm from '@/features/contact/components/ContactForm';
+import { getProjects } from '@/features/admin/lib/project-actions';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -62,7 +63,8 @@ const jsonLd = {
   ],
 };
 
-const Home = () => {
+const Home = async () => {
+  const projects = await getProjects();
   return (
     <main>
       <script
@@ -81,7 +83,7 @@ const Home = () => {
             Projects
           </h2>
         </div>
-        <ProjectsList />
+        <ProjectsList projects={projects} />
       </section>
       <CTABanner />
       <section id='contact' className='px-8 py-24 max-w-7xl mx-auto'>

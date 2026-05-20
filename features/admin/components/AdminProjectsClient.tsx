@@ -1,17 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Pencil, Trash2, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProjectForm from '@/features/admin/components/ProjectForm';
-import { projects as initialProjects } from '@/constants';
+import { deleteProject } from '@/features/admin/lib/project-actions';
 import type { Project } from '@/features/shared/types';
 
-const AdminProjectsClient = () => {
-  const [projects, setProjects] = useState<Project[]>(initialProjects);
+interface AdminProjectsClientProps {
+  initialProjects: Project[];
+}
+
+const AdminProjectsClient = ({ initialProjects }: AdminProjectsClientProps) => {
+  const router = useRouter();
   const [formOpen, setFormOpen] = useState(false);
   const [editTarget, setEditTarget] = useState<Project | undefined>(undefined);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   const openAdd = () => {
     setEditTarget(undefined);
@@ -25,7 +32,21 @@ const AdminProjectsClient = () => {
 
   const handleDelete = (id: string) => {
     if (!confirm('Delete this project?')) return;
-    setProjects((prev) => prev.filter((p) => p.id !== id));
+    setDeletingId(id);
+    startTransition(async () => {
+      const result = await deleteProject(id);
+      setDeletingId(null);
+      if (result.error) {
+        alert(result.error);
+        return;
+      }
+      router.refresh();
+    });
+  };
+
+  const handleSaved = () => {
+    setFormOpen(false);
+    router.refresh();
   };
 
   return (
@@ -43,7 +64,7 @@ const AdminProjectsClient = () => {
 
       <div className='rounded-xl border border-[#494551] overflow-hidden'>
         <table className='w-full text-sm'>
-          <thead className='bg-white/04'>
+          <thead className='bg-white/4'>
             <tr>
               <th className='text-left px-5 py-3 text-[#cbc4d2] font-medium'>
                 Title
@@ -64,10 +85,10 @@ const AdminProjectsClient = () => {
             </tr>
           </thead>
           <tbody className='divide-y divide-[#494551]'>
-            {projects.map((project) => (
+            {initialProjects.map((project) => (
               <tr
                 key={project.id}
-                className='hover:bg-white/02 transition-colors'
+                className={`hover:bg-white/2 transition-colors ${deletingId === project.id ? 'opacity-40' : ''}`}
               >
                 <td className='px-5 py-4 text-[#e6e0e9] font-medium'>
                   {project.title}
@@ -123,14 +144,15 @@ const AdminProjectsClient = () => {
                   <div className='flex items-center gap-2 justify-end'>
                     <button
                       onClick={() => openEdit(project)}
-                      className='p-1.5 rounded-md text-[#cbc4d2] hover:bg-white/08 hover:text-[#e6e0e9] transition-colors'
+                      className='p-1.5 rounded-md text-[#cbc4d2] hover:bg-white/8 hover:text-[#e6e0e9] transition-colors'
                       aria-label='Edit project'
                     >
                       <Pencil size={14} />
                     </button>
                     <button
                       onClick={() => handleDelete(project.id)}
-                      className='p-1.5 rounded-md text-[#cbc4d2] hover:bg-red-500/10 hover:text-red-400 transition-colors'
+                      disabled={isPending}
+                      className='p-1.5 rounded-md text-[#cbc4d2] hover:bg-red-500/10 hover:text-red-400 transition-colors disabled:opacity-40'
                       aria-label='Delete project'
                     >
                       <Trash2 size={14} />
@@ -143,13 +165,16 @@ const AdminProjectsClient = () => {
         </table>
       </div>
 
-      <p className='mt-4 text-xs text-[#494551]'>
-        Changes are in-memory only. Persistence wired to DB in Phase 6.
-      </p>
+      {initialProjects.length === 0 && (
+        <p className='mt-8 text-center text-sm text-[#494551]'>
+          No projects yet — add your first one.
+        </p>
+      )}
 
       <ProjectForm
         open={formOpen}
         onClose={() => setFormOpen(false)}
+        onSaved={handleSaved}
         project={editTarget}
       />
     </>

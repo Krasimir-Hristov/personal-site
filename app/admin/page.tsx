@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { auth } from '@/auth';
-import { projects } from '@/constants';
+import { getProjects } from '@/features/admin/lib/project-actions';
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 const AdminDashboardPage = async () => {
   const session = await auth();
+  const projects = await getProjects();
 
   return (
     <div>

@@ -4,7 +4,7 @@ import {
   FaLinkedin,
   FaYoutube,
 } from 'react-icons/fa';
-import { NavLink, Project } from '@/features/shared/types';
+import { NavLink } from '@/features/shared/types';
 import { Database, Bot, BrainCircuit, Layers, Zap } from 'lucide-react';
 
 // Navbar links ---> used in Navbar.tsx
@@ -70,67 +70,6 @@ export const techStack = [
   { label: 'pgvector', color: 'text-[#60a5fa]' }, // PostgreSQL blue
   { label: 'Docker', color: 'text-[#60a5fa]' }, // Docker blue
   { label: 'Vercel', color: 'text-[#e6e0e9]' }, // Vercel white
-];
-
-// Projects data
-export const projects: Project[] = [
-  {
-    id: 'savage-ai',
-    title: 'Savage AI',
-    description:
-      'Chat app where you pick an arrogant character — angry grandpa, cooperative shark, balkandzhiya — that roasts you constantly but actually gets things done. Supports image generation, RAG knowledge base, and voice conversations via ElevenLabs.',
-    techStack: [
-      'Next.js',
-      'LangChain',
-      'OpenRouter',
-      'ElevenLabs',
-      'Supabase',
-      'pgvector',
-    ],
-    githubUrl: 'https://github.com/Krasimir-Hristov/Savage-AI',
-    demoUrl: 'https://savage-ai-tau.vercel.app/',
-    badge: 'AI / Chat',
-    featured: true,
-    category: ['AI Tools', 'Web Apps'],
-  },
-  {
-    id: 'axon',
-    title: 'AXON',
-    description:
-      'Personal AI assistant connected to 30+ LLM models, RAG system, YouTube transcript extraction, and text-to-speech. Built as a growing platform — new tools and sub-agents are added as needed.',
-    techStack: [
-      'Next.js',
-      'FastAPI',
-      'shadcn/ui',
-      'OpenRouter',
-      'Supabase',
-      'pgvector',
-    ],
-    githubUrl: 'https://github.com/Krasimir-Hristov/AXON',
-    badge: 'AI / Assistant',
-    featured: true,
-    category: ['AI Tools'],
-  },
-  {
-    id: 'freelance-1',
-    title: 'Internal CRM System',
-    description:
-      'Custom CRM solution built for a client — internal company system for managing leads, tasks, and team communication.',
-    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    badge: 'Freelance',
-    featured: false,
-    category: ['Web Apps'],
-  },
-  {
-    id: 'freelance-2',
-    title: 'Business Dashboard',
-    description:
-      'Internal analytics and reporting dashboard for a business client, providing real-time data visualization and export functionality.',
-    techStack: ['React', 'TypeScript', 'Tailwind CSS'],
-    badge: 'Freelance',
-    featured: false,
-    category: ['Web Apps'],
-  },
 ];
 
 // Specializations data for Home page ---> used in SpecializationsSection.tsx
