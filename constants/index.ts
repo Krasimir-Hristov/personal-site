@@ -21,7 +21,7 @@ export const navLinks: NavLink[] = [
     label: 'Projects',
     isActive: (_, h) => h === '#projects',
   },
-  { href: '/contact', label: 'Contact', isActive: (p) => p === '/contact' },
+  { href: '/#contact', label: 'Contact', isActive: (_, h) => h === '#contact' },
 ];
 
 // Footer social links ---> used in Footer.tsx

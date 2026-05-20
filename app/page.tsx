@@ -3,6 +3,8 @@ import AboutSection from '@/features/home/components/AboutSection';
 import SpecializationsSection from '@/features/home/components/SpecializationsSection';
 import CTABanner from '@/features/home/components/CTABanner';
 import ProjectsList from '@/features/projects/components/ProjectsList';
+import ContactInfo from '@/features/contact/components/ContactInfo';
+import ContactForm from '@/features/contact/components/ContactForm';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -82,6 +84,20 @@ const Home = () => {
         <ProjectsList />
       </section>
       <CTABanner />
+      <section id='contact' className='px-8 py-24 max-w-7xl mx-auto'>
+        <div className='mb-12'>
+          <span className='font-mono text-xs text-[#06b6d4] uppercase tracking-widest block mb-3'>
+            Get In Touch
+          </span>
+          <h2 className='text-3xl md:text-4xl font-bold text-[#e6e0e9] tracking-tight'>
+            Contact
+          </h2>
+        </div>
+        <div className='grid lg:grid-cols-2 gap-16 lg:gap-24'>
+          <ContactInfo />
+          <ContactForm />
+        </div>
+      </section>
     </main>
   );
 };

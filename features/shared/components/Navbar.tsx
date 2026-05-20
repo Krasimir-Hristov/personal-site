@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/constants';
@@ -14,6 +14,7 @@ const Navbar = () => {
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hash, setHash] = useState('');
+  const isNavigating = useRef(false);
 
   useEffect(() => {
     if (pathname !== '/') {
@@ -28,6 +29,7 @@ const Navbar = () => {
     const OFFSET = 80;
 
     const handleScroll = () => {
+      if (isNavigating.current) return;
       const scrollY = window.scrollY + OFFSET;
 
       const sections = sectionIds
@@ -36,6 +38,14 @@ const Navbar = () => {
           top: document.getElementById(id)?.offsetTop ?? Infinity,
         }))
         .sort((a, b) => a.top - b.top);
+
+      const nearBottom =
+        window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
+
+      if (nearBottom && sections.length > 0) {
+        setHash(`#${sections[sections.length - 1].id}`);
+        return;
+      }
 
       let active = '';
       for (const { id, top } of sections) {
@@ -64,6 +74,8 @@ const Navbar = () => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
       history.pushState(null, '', `#${id}`);
       setHash(`#${id}`);
+      isNavigating.current = true;
+      setTimeout(() => { isNavigating.current = false; }, 900);
     } else {
       router.push(href);
     }
