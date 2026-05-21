@@ -162,11 +162,11 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ### SEO & Performance
 
-- [ ] Verify each page has exactly one `<h1>`
-- [ ] Verify all images have descriptive `alt` text
-- [ ] Add JSON-LD structured data for project pages
-- [ ] Run Lighthouse audit � target 90+ on all metrics
-- [ ] Check mobile responsiveness on all pages
+- [X] Verify each page has exactly one `<h1>`
+- [X] Verify all images have descriptive `alt` text
+- [X] Add JSON-LD structured data for project pages
+- [X] Run Lighthouse audit � target 90+ on all metrics
+- [X] Check mobile responsiveness on all pages
 
 ### Final
 
