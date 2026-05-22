@@ -1,26 +1,8 @@
 'use server';
 
 import { sql } from '@/features/shared/lib/db';
+import { embedText } from '@/features/chatbot/lib/embeddings';
 import type { Document, DocumentType } from '@/features/shared/types';
-
-const embedText = async (text: string): Promise<number[]> => {
-  const res = await fetch('https://openrouter.ai/api/v1/embeddings', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: 'openai/text-embedding-3-small',
-      input: text,
-    }),
-  });
-
-  if (!res.ok) throw new Error(`Embedding API error: ${res.status}`);
-
-  const json = (await res.json()) as { data: { embedding: number[] }[] };
-  return json.data[0].embedding;
-};
 
 export const getDocuments = async (): Promise<Document[]> => {
   const rows = await sql`
