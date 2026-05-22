@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/features/shared/components/Navbar';
 import Footer from '@/features/shared/components/Footer';
 import MotionProvider from '@/features/shared/components/MotionProvider';
+import ChatBubble from '@/features/chatbot/components/ChatBubble';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -59,6 +60,7 @@ const RootLayout = ({
           <Navbar />
           <div className='flex-1 pt-14'>{children}</div>
           <Footer />
+          <ChatBubble />
         </MotionProvider>
       </body>
     </html>
