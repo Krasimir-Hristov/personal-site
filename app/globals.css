@@ -176,16 +176,26 @@ body {
   margin-bottom: 0.35em;
   color: #e6e0e9;
 }
-.chat-markdown h1 { font-size: 1.1em; }
-.chat-markdown h2 { font-size: 1.05em; }
-.chat-markdown h3 { font-size: 1em; }
+.chat-markdown h1 {
+  font-size: 1.1em;
+}
+.chat-markdown h2 {
+  font-size: 1.05em;
+}
+.chat-markdown h3 {
+  font-size: 1em;
+}
 .chat-markdown ul,
 .chat-markdown ol {
   padding-left: 1.25em;
   margin-bottom: 0.5em;
 }
-.chat-markdown ul { list-style-type: disc; }
-.chat-markdown ol { list-style-type: decimal; }
+.chat-markdown ul {
+  list-style-type: disc;
+}
+.chat-markdown ol {
+  list-style-type: decimal;
+}
 .chat-markdown li {
   margin-bottom: 0.2em;
 }
