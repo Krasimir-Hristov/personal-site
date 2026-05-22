@@ -51,10 +51,14 @@ export const dbToProject = (row: DbProject): Project => ({
   category: row.category,
 });
 
+export type DocumentType = 'bio' | 'project' | 'techstack' | 'contact' | 'general';
+
 export interface Document {
   id: string;
   title: string;
   content: string;
+  type: DocumentType;
+  tags: string[];
   createdAt: string;
 }
 
@@ -62,6 +66,6 @@ export interface Document {
 export interface DbDocument {
   id: number;
   content: string;
-  metadata: { title?: string } | null;
+  metadata: { title?: string; type?: DocumentType; sourceId?: string; tags?: string[] } | null;
   created_at?: string;
 }
