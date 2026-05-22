@@ -106,3 +106,11 @@ export const specializations = [
       'Connect any LLM to your product via OpenAI, Anthropic, or OpenRouter. Streaming, function calling, and rate limiting included.',
   },
 ];
+
+// Admin sidebar links ---> used in AdminSidebar.tsx
+export const navItemsAdminSideBar = [
+  { href: '/admin', label: 'Dashboard' },
+  { href: '/admin/projects', label: 'Projects' },
+  { href: '/admin/documents', label: 'Knowledge Base' },
+  { href: '/admin/settings', label: 'Settings' },
+];

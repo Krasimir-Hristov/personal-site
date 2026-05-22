@@ -4,12 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { cn } from '@/lib/utils';
-
-const navItems = [
-  { href: '/admin', label: 'Dashboard' },
-  { href: '/admin/projects', label: 'Projects' },
-  { href: '/admin/settings', label: 'Settings' },
-];
+import { navItemsAdminSideBar } from '@/constants';
 
 const AdminSidebar = () => {
   const pathname = usePathname();
@@ -21,7 +16,7 @@ const AdminSidebar = () => {
       </p>
 
       <nav className='flex flex-col gap-1 flex-1'>
-        {navItems.map(({ href, label }) => (
+        {navItemsAdminSideBar.map(({ href, label }) => (
           <Link
             key={href}
             href={href}

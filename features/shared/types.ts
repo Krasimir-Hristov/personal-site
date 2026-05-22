@@ -50,3 +50,18 @@ export const dbToProject = (row: DbProject): Project => ({
   featured: row.featured,
   category: row.category,
 });
+
+export interface Document {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: string;
+}
+
+// Raw row from Neon `documents` table
+export interface DbDocument {
+  id: number;
+  content: string;
+  metadata: { title?: string } | null;
+  created_at?: string;
+}
