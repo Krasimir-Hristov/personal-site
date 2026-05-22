@@ -139,7 +139,6 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ### RAG Chatbot
 
-- [ ] Write project knowledge base in `data/projects/` (markdown files per project)
 - [ ] Create `scripts/ingest.ts` � chunk, embed via OpenRouter (`openai/text-embedding-3-small`), upsert into Neon
 - [ ] Create `app/api/chat/route.ts` � `streamText` with tools: `searchProjects` (RAG), `sendEmail`, `getContactInfo`
 - [ ] Build chatbot UI: `ChatWindow`, `ChatMessage`, `ChatInput` in `features/chatbot/components/`
@@ -162,11 +161,11 @@ Stack: Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Moti
 
 ### SEO & Performance
 
-- [X] Verify each page has exactly one `<h1>`
-- [X] Verify all images have descriptive `alt` text
-- [X] Add JSON-LD structured data for project pages
-- [X] Run Lighthouse audit � target 90+ on all metrics
-- [X] Check mobile responsiveness on all pages
+- [x] Verify each page has exactly one `<h1>`
+- [x] Verify all images have descriptive `alt` text
+- [x] Add JSON-LD structured data for project pages
+- [x] Run Lighthouse audit � target 90+ on all metrics
+- [x] Check mobile responsiveness on all pages
 
 ### Final
 
