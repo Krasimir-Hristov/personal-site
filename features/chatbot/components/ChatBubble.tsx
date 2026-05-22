@@ -6,6 +6,8 @@ import { Bot, X, Send, Minimize2 } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
+import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 import { cn } from '@/lib/utils';
 
 const WELCOME_MESSAGE =
@@ -141,13 +143,44 @@ const ChatBubble = () => {
                       {text && (
                         <div
                           className={cn(
-                            'rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap',
+                            'rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed',
                             isUser
-                              ? 'bg-[#7c3aed]/20 text-[#e6e0e9] rounded-tr-sm'
-                              : 'bg-white/5 text-[#e6e0e9] border border-[#494551]/40 rounded-tl-sm',
+                              ? 'bg-[#7c3aed]/20 text-[#e6e0e9] rounded-tr-sm whitespace-pre-wrap'
+                              : 'bg-white/5 text-[#e6e0e9] border border-[#494551]/40 rounded-tl-sm chat-markdown',
                           )}
                         >
-                          {text}
+                          {isUser ? (
+                            text
+                          ) : (
+                            <ReactMarkdown
+                              components={{
+                                a: ({ href, children }) => {
+                                  const isInternal =
+                                    href?.startsWith('/') ||
+                                    href?.startsWith('#');
+                                  return isInternal ? (
+                                    <Link
+                                      href={href ?? '#'}
+                                      className='text-[#06b6d4] underline hover:text-[#06b6d4]/80'
+                                    >
+                                      {children}
+                                    </Link>
+                                  ) : (
+                                    <a
+                                      href={href}
+                                      target='_blank'
+                                      rel='noopener noreferrer'
+                                      className='text-[#06b6d4] underline hover:text-[#06b6d4]/80'
+                                    >
+                                      {children}
+                                    </a>
+                                  );
+                                },
+                              }}
+                            >
+                              {text}
+                            </ReactMarkdown>
+                          )}
                         </div>
                       )}
                     </div>
