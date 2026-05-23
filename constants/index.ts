@@ -112,5 +112,5 @@ export const navItemsAdminSideBar = [
   { href: '/admin', label: 'Dashboard' },
   { href: '/admin/projects', label: 'Projects' },
   { href: '/admin/documents', label: 'Knowledge Base' },
-  { href: '/admin/settings', label: 'Settings' },
+  // { href: '/admin/settings', label: 'Settings' },
 ];
