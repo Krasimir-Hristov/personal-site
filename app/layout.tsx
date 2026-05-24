@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Inter, JetBrains_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/features/shared/components/Navbar';
 import Footer from '@/features/shared/components/Footer';
 import MotionProvider from '@/features/shared/components/MotionProvider';
-import ChatBubble from '@/features/chatbot/components/ChatBubble';
+import ChatBubbleWrapper from '@/features/chatbot/components/ChatBubbleWrapper';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -18,11 +18,6 @@ const geistMono = Geist_Mono({
 
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin'],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains-mono',
   subsets: ['latin'],
 });
 
@@ -53,14 +48,14 @@ const RootLayout = ({
   return (
     <html
       lang='en'
-      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} h-full antialiased dark`}
     >
       <body className='min-h-full flex flex-col bg-[#09090b] text-[#e6e0e9]'>
         <MotionProvider>
           <Navbar />
           <div className='flex-1 pt-14'>{children}</div>
           <Footer />
-          <ChatBubble />
+          <ChatBubbleWrapper />
         </MotionProvider>
       </body>
     </html>

@@ -14,7 +14,7 @@ const SUBJECTS = [
 ] as const;
 
 const inputClass =
-  'w-full bg-[#09090b]/60 border border-[#494551]/40 rounded-lg px-4 py-3 text-sm text-[#e6e0e9] placeholder:text-[#494551] focus:outline-none focus:border-[#06b6d4]/60 focus:ring-1 focus:ring-[#06b6d4]/30 transition-colors';
+  'w-full bg-[#09090b]/60 border border-[#494551]/40 rounded-lg px-4 py-3 text-sm text-[#e6e0e9] placeholder:text-[#8a8494] focus:outline-none focus:border-[#06b6d4]/60 focus:ring-1 focus:ring-[#06b6d4]/30 transition-colors';
 
 const labelClass =
   'block font-mono text-[10px] text-[#06b6d4] uppercase tracking-widest mb-2';
@@ -86,7 +86,7 @@ const ContactForm = () => {
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className='mt-2 font-mono text-xs text-[#494551] hover:text-[#cbc4d2] transition-colors underline underline-offset-4'
+          className='mt-2 font-mono text-xs text-[#8a8494] hover:text-[#cbc4d2] transition-colors underline underline-offset-4'
         >
           Send another transmission
         </button>
@@ -213,7 +213,7 @@ const ContactForm = () => {
         )}
       </button>
 
-      <p className='text-center text-[10px] text-[#494551] leading-relaxed'>
+      <p className='text-center text-[10px] text-[#8a8494] leading-relaxed'>
         All transmissions are processed via secure neural relays.{' '}
         <br className='hidden sm:block' />
         Average response latency: &lt; 24h.

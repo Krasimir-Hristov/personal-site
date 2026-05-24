@@ -38,7 +38,7 @@ const ContactInfo = () => {
             <Mail className='w-4 h-4 text-[#06b6d4]' />
           </div>
           <div>
-            <p className='font-mono text-[10px] text-[#494551] uppercase tracking-widest mb-0.5'>
+            <p className='font-mono text-[10px] text-[#8a8494] uppercase tracking-widest mb-0.5'>
               Direct Channel
             </p>
             <div className='flex items-center gap-2'>
@@ -46,7 +46,7 @@ const ContactInfo = () => {
               <button
                 onClick={copyEmail}
                 aria-label='Copy email'
-                className='text-[#494551] hover:text-[#06b6d4] transition-colors'
+                className='text-[#8a8494] hover:text-[#06b6d4] transition-colors'
               >
                 {copied ? (
                   <Check className='w-3.5 h-3.5 text-[#06b6d4]' />
@@ -63,7 +63,7 @@ const ContactInfo = () => {
             <Phone className='w-4 h-4 text-[#06b6d4]' />
           </div>
           <div>
-            <p className='font-mono text-[10px] text-[#494551] uppercase tracking-widest mb-0.5'>
+            <p className='font-mono text-[10px] text-[#8a8494] uppercase tracking-widest mb-0.5'>
               Signal Line
             </p>
             <a
@@ -80,7 +80,7 @@ const ContactInfo = () => {
             <MapPin className='w-4 h-4 text-[#06b6d4]' />
           </div>
           <div>
-            <p className='font-mono text-[10px] text-[#494551] uppercase tracking-widest mb-0.5'>
+            <p className='font-mono text-[10px] text-[#8a8494] uppercase tracking-widest mb-0.5'>
               Node Location
             </p>
             <span className='text-[#e6e0e9]'>

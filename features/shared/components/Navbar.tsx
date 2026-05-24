@@ -28,16 +28,20 @@ const Navbar = () => {
 
     const OFFSET = 80;
 
-    const handleScroll = () => {
-      if (isNavigating.current) return;
-      const scrollY = window.scrollY + OFFSET;
+    let sections: { id: string; top: number }[] = [];
 
-      const sections = sectionIds
+    const updateSections = () => {
+      sections = sectionIds
         .map((id) => ({
           id,
           top: document.getElementById(id)?.offsetTop ?? Infinity,
         }))
         .sort((a, b) => a.top - b.top);
+    };
+
+    const handleScroll = () => {
+      if (isNavigating.current) return;
+      const scrollY = window.scrollY + OFFSET;
 
       const nearBottom =
         window.scrollY + window.innerHeight >=
@@ -55,16 +59,33 @@ const Navbar = () => {
       setHash(active);
     };
 
+    updateSections();
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateSections, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateSections);
+    };
   }, [pathname]);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
+    if (href === '/') {
+      if (pathname === '/') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        history.pushState(null, '', '/');
+        setHash('');
+      } else {
+        setHash('');
+      }
+      return;
+    }
+
     if (!href.startsWith('/#')) {
       setHash('');
       return;

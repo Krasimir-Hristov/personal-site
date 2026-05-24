@@ -12,7 +12,7 @@ interface ProjectsListProps {
 const ProjectsList = ({ projects }: ProjectsListProps) => {
   if (projects.length === 0) {
     return (
-      <p className='text-[#494551] text-sm'>
+      <p className='text-[#8a8494] text-sm'>
         No projects yet. Check back soon.
       </p>
     );

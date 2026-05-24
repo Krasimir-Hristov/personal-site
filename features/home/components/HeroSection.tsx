@@ -92,6 +92,7 @@ const HeroSection = () => {
             width={560}
             height={420}
             priority
+            quality={70}
             sizes='(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px'
             className='relative z-10 w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(6,182,212,0.3)]'
           />
