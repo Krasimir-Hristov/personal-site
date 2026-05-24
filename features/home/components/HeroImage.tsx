@@ -9,7 +9,7 @@ const HeroImage = () => (
     width={560}
     height={420}
     priority
-    quality={70}
+    quality={85}
     sizes='(max-width: 1024px) calc(100vw - 4rem), (max-width: 1280px) 40vw, 560px'
     className='relative z-10 w-full h-auto object-contain'
   />

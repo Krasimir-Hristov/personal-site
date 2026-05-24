@@ -1,13 +1,25 @@
+import dynamic from 'next/dynamic';
 import HeroSection from '@/features/home/components/HeroSection';
 import HeroImage from '@/features/home/components/HeroImage';
-import AboutSection from '@/features/home/components/AboutSection';
-import SpecializationsSection from '@/features/home/components/SpecializationsSection';
-import CTABanner from '@/features/home/components/CTABanner';
-import ProjectsList from '@/features/projects/components/ProjectsList';
-import ContactInfo from '@/features/contact/components/ContactInfo';
-import ContactForm from '@/features/contact/components/ContactForm';
 import { getProjects } from '@/features/admin/lib/project-actions';
 import type { Metadata } from 'next';
+
+const AboutSection = dynamic(
+  () => import('@/features/home/components/AboutSection'),
+);
+const SpecializationsSection = dynamic(
+  () => import('@/features/home/components/SpecializationsSection'),
+);
+const CTABanner = dynamic(() => import('@/features/home/components/CTABanner'));
+const ProjectsList = dynamic(
+  () => import('@/features/projects/components/ProjectsList'),
+);
+const ContactInfo = dynamic(
+  () => import('@/features/contact/components/ContactInfo'),
+);
+const ContactForm = dynamic(
+  () => import('@/features/contact/components/ContactForm'),
+);
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.krasimirxristov.com'),
