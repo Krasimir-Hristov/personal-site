@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/constants';
 import { Button } from '@/components/ui/button';
@@ -150,7 +150,7 @@ const Navbar = () => {
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label='Toggle navigation menu'
           >
-            <motion.svg
+            <m.svg
               width='24'
               height='24'
               viewBox='0 0 24 24'
@@ -171,7 +171,7 @@ const Navbar = () => {
                   <line x1='3' y1='18' x2='21' y2='18' />
                 </>
               )}
-            </motion.svg>
+            </m.svg>
           </Button>
         </div>
       </div>
@@ -179,7 +179,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -211,7 +211,7 @@ const Navbar = () => {
             >
               Hire Me
             </Link>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

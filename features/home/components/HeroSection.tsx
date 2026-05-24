@@ -83,7 +83,7 @@ const HeroSection = () => {
         {/* Right column — neural network */}
         <div className='lg:col-span-5 relative flex justify-center items-center'>
           <div
-            className='absolute inset-0 bg-[#06b6d4]/5 blur-[100px] rounded-full'
+            className='absolute inset-0 bg-[#06b6d4]/10 blur-[80px] rounded-full'
             aria-hidden='true'
           />
           <Image
@@ -94,7 +94,7 @@ const HeroSection = () => {
             priority
             quality={70}
             sizes='(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px'
-            className='relative z-10 w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(6,182,212,0.3)]'
+            className='relative z-10 w-full h-auto object-contain'
           />
         </div>
       </div>
