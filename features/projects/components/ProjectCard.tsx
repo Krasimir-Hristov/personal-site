@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <Link
               href={githubUrl}
               target='_blank'
-              rel='noopener noreferrer'
+              rel='noopener noreferrer nofollow'
               aria-label={`${title} GitHub repository`}
               className='inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[#494551]/60 text-xs font-medium text-[#cbc4d2] hover:text-[#e6e0e9] hover:border-[#06b6d4]/40 transition-colors'
             >
@@ -61,7 +61,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <Link
               href={demoUrl}
               target='_blank'
-              rel='noopener noreferrer'
+              rel='noopener noreferrer nofollow'
               aria-label={`${title} live demo`}
               className='inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#06b6d4]/10 border border-[#06b6d4]/30 text-xs font-medium text-[#06b6d4] hover:bg-[#06b6d4]/20 transition-colors'
             >

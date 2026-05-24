@@ -21,9 +21,9 @@ const ContactInfo = () => {
         <span className='font-mono text-xs text-[#06b6d4] uppercase tracking-widest'>
           Transmission Protocol
         </span>
-        <h1 className='text-4xl lg:text-5xl font-bold text-[#e6e0e9] leading-tight'>
+        <h2 className='text-4xl lg:text-5xl font-bold text-[#e6e0e9] leading-tight'>
           Initiate Connection
-        </h1>
+        </h2>
         <p className='text-[#cbc4d2] leading-relaxed max-w-md'>
           Have a project in mind, a collaboration proposal, or just want to say
           hello? Open a channel — I&apos;m always available for the right
@@ -95,7 +95,7 @@ const ContactInfo = () => {
         <Link
           href='https://github.com/Krasimir-Hristov'
           target='_blank'
-          rel='noopener noreferrer'
+          rel='noopener noreferrer nofollow'
           aria-label='GitHub'
           className='inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#494551]/60 text-sm text-[#cbc4d2] hover:text-[#e6e0e9] hover:border-[#06b6d4]/40 transition-colors'
         >
@@ -105,7 +105,7 @@ const ContactInfo = () => {
         <Link
           href='https://www.linkedin.com/in/krasimir-hristov/'
           target='_blank'
-          rel='noopener noreferrer'
+          rel='noopener noreferrer nofollow'
           aria-label='LinkedIn'
           className='inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#494551]/60 text-sm text-[#cbc4d2] hover:text-[#e6e0e9] hover:border-[#06b6d4]/40 transition-colors'
         >

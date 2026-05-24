@@ -22,6 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.krasimirxristov.com'),
   title: 'Krasimir Hristov — Web Developer & AI Engineer',
   description:
     'Portfolio of Krasimir Hristov. Full-stack web developer and AI engineer specialising in intelligent web applications, RAG systems, and LLM integrations.',

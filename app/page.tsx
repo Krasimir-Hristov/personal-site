@@ -1,4 +1,5 @@
 import HeroSection from '@/features/home/components/HeroSection';
+import HeroImage from '@/features/home/components/HeroImage';
 import AboutSection from '@/features/home/components/AboutSection';
 import SpecializationsSection from '@/features/home/components/SpecializationsSection';
 import CTABanner from '@/features/home/components/CTABanner';
@@ -9,9 +10,11 @@ import { getProjects } from '@/features/admin/lib/project-actions';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.krasimirxristov.com'),
+  alternates: { canonical: '/' },
   title: 'Krasimir Hristov — Web Developer & AI Engineer',
   description:
-    'Portfolio of Krasimir Hristov — full-stack web developer and AI engineer based in Stuttgart, Germany. Specializing in Next.js, TypeScript, and RAG systems. Available for remote work worldwide.',
+    'Krasimir Hristov — full-stack web developer & AI engineer. Next.js, TypeScript, RAG systems. Stuttgart, Germany. Available for remote work.',
   openGraph: {
     title: 'Krasimir Hristov — Web Developer & AI Engineer',
     description:
@@ -67,24 +70,11 @@ const Home = async () => {
   const projects = await getProjects();
   return (
     <main>
-      {/*
-        React 19 auto-hoists <link> to <head>.
-        Explicit preload workaround because Next.js/Turbopack does not emit
-        fetchpriority="high" on the <img> for the LCP image in client components.
-      */}
-      <link
-        rel='preload'
-        as='image'
-        href='/images/hero-section.png'
-        imageSrcSet='/_next/image?url=%2Fimages%2Fhero-section.png&w=384&q=70 384w, /_next/image?url=%2Fimages%2Fhero-section.png&w=640&q=70 640w, /_next/image?url=%2Fimages%2Fhero-section.png&w=750&q=70 750w, /_next/image?url=%2Fimages%2Fhero-section.png&w=828&q=70 828w, /_next/image?url=%2Fimages%2Fhero-section.png&w=1080&q=70 1080w'
-        imageSizes='(max-width: 1024px) calc(100vw - 4rem), (max-width: 1280px) 40vw, 560px'
-        fetchPriority='high'
-      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HeroSection />
+      <HeroSection heroImage={<HeroImage />} />
       <AboutSection />
       <SpecializationsSection />
       <section id='projects' className='px-8 py-24 max-w-7xl mx-auto'>
