@@ -5,11 +5,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
-    optimizePackageImports: [
-      'framer-motion',
-      'lucide-react',
-      'react-icons',
-    ],
+    optimizePackageImports: ['framer-motion', 'lucide-react', 'react-icons'],
   },
   async redirects() {
     const rules = [
