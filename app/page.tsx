@@ -67,6 +67,19 @@ const Home = async () => {
   const projects = await getProjects();
   return (
     <main>
+      {/*
+        React 19 auto-hoists <link> to <head>.
+        Explicit preload workaround because Next.js/Turbopack does not emit
+        fetchpriority="high" on the <img> for the LCP image in client components.
+      */}
+      <link
+        rel='preload'
+        as='image'
+        href='/images/hero-section.png'
+        imageSrcSet='/_next/image?url=%2Fimages%2Fhero-section.png&w=384&q=70 384w, /_next/image?url=%2Fimages%2Fhero-section.png&w=640&q=70 640w, /_next/image?url=%2Fimages%2Fhero-section.png&w=750&q=70 750w, /_next/image?url=%2Fimages%2Fhero-section.png&w=828&q=70 828w, /_next/image?url=%2Fimages%2Fhero-section.png&w=1080&q=70 1080w'
+        imageSizes='(max-width: 1024px) calc(100vw - 4rem), (max-width: 1280px) 40vw, 560px'
+        fetchPriority='high'
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

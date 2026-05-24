@@ -93,7 +93,7 @@ const HeroSection = () => {
             height={420}
             priority
             quality={70}
-            sizes='(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px'
+            sizes='(max-width: 1024px) calc(100vw - 4rem), (max-width: 1280px) 40vw, 560px'
             className='relative z-10 w-full h-auto object-contain'
           />
         </div>
