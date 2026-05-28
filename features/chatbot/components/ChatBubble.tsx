@@ -26,14 +26,13 @@ const ChatBubble = () => {
   const isLoading = status === 'streaming' || status === 'submitted';
   const [input, setInput] = useState('');
 
-  // Hide on admin pages
-  if (pathname.startsWith('/admin')) return null;
-
   // Auto-scroll to bottom when messages change
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, status]);
+
+  // Hide on admin pages
+  if (pathname.startsWith('/admin')) return null;
 
   const handleSend = () => {
     const text = input.trim();
