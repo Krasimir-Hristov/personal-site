@@ -139,16 +139,32 @@ export const POST = async (req: Request): Promise<Response> => {
     }),
   };
 
-  const result = streamText({
-    model: openrouter(CHAT_MODEL),
-    system: buildSystemPrompt(),
-    messages: await convertToModelMessages(messages),
-    tools,
-    stopWhen: stepCountIs(5),
-    temperature: 0.6,
-    maxOutputTokens: 1024,
-    maxRetries: 2,
-  });
+  let modelMessages;
+  try {
+    modelMessages = await convertToModelMessages(messages);
+  } catch (err) {
+    console.error('[chat] convertToModelMessages failed:', err);
+    return Response.json({ error: 'Invalid message history' }, { status: 400 });
+  }
 
-  return result.toUIMessageStreamResponse();
+  try {
+    const result = streamText({
+      model: openrouter(CHAT_MODEL),
+      system: buildSystemPrompt(),
+      messages: modelMessages,
+      tools,
+      stopWhen: stepCountIs(5),
+      temperature: 0.6,
+      maxOutputTokens: 1024,
+      maxRetries: 2,
+    });
+
+    return result.toUIMessageStreamResponse();
+  } catch (err) {
+    console.error('[chat] streamText failed:', err);
+    return Response.json(
+      { error: 'Failed to generate response' },
+      { status: 500 },
+    );
+  }
 };
