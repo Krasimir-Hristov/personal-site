@@ -5,7 +5,18 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 import { NavLink } from '@/features/shared/types';
-import { Database, Bot, BrainCircuit, Layers, Zap } from 'lucide-react';
+import {
+  Database,
+  Bot,
+  BrainCircuit,
+  Layers,
+  Zap,
+  Terminal,
+  Cpu,
+  GitMerge,
+  Code2,
+  Target,
+} from 'lucide-react';
 
 // Navbar links ---> used in Navbar.tsx
 export const navLinks: NavLink[] = [
@@ -106,6 +117,41 @@ export const specializations = [
       'Connect any LLM to your product via OpenAI, Anthropic, or OpenRouter. Streaming, function calling, and rate limiting included.',
   },
 ];
+
+// AI Workflow items ---> used in AiWorkflowSection.tsx
+export const aiWorkflowItems = [
+  {
+    icon: Terminal,
+    title: 'Agentic Coding',
+    description:
+      'Cursor, Windsurf, GitHub Copilot, and Cline — each configured with custom API keys and fine-tuned for high-precision output across every stack and project type.',
+  },
+  {
+    icon: Cpu,
+    title: 'MCP Servers',
+    description:
+      'Custom Model Context Protocol servers that extend agent capabilities with memory, file access, web tools, and domain-specific integrations for richer, context-aware outputs.',
+  },
+  {
+    icon: GitMerge,
+    title: 'Custom AI Workflows',
+    description:
+      'Purpose-built skills, reusable prompt chains, and automation sequences designed to eliminate repetition and compress complex tasks into single commands.',
+  },
+  {
+    icon: Code2,
+    title: 'Full-Stack Awareness',
+    description:
+      'I review, understand, and own every line the agent produces. No black-box code — only verified, production-ready output I can explain, debug, and extend at any layer.',
+  },
+];
+
+export const aiWorkflowDifferentiator = {
+  icon: Target,
+  label: 'Key Differentiator',
+  text: 'This is not vibe coding. I use AI the way a surgeon uses precision instruments — with expertise, intention, and complete mastery of the result. AI accelerates execution; I own the architecture.',
+  highlight: 'not vibe coding',
+};
 
 // Admin sidebar links ---> used in AdminSidebar.tsx
 export const navItemsAdminSideBar = [

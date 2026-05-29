@@ -10,6 +10,9 @@ const AboutSection = dynamic(
 const SpecializationsSection = dynamic(
   () => import('@/features/home/components/SpecializationsSection'),
 );
+const AiWorkflowSection = dynamic(
+  () => import('@/features/home/components/AiWorkflowSection'),
+);
 const ProjectsList = dynamic(
   () => import('@/features/projects/components/ProjectsList'),
 );
@@ -88,6 +91,7 @@ const Home = async () => {
       <HeroSection heroImage={<HeroImage />} />
       <AboutSection />
       <SpecializationsSection />
+      <AiWorkflowSection />
       <section id='projects' className='px-8 py-24 max-w-7xl mx-auto'>
         <div className='mb-10'>
           <span className='font-mono text-xs text-[#06b6d4] uppercase tracking-widest block mb-3'>
