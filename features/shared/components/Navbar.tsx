@@ -124,7 +124,7 @@ const Navbar = () => {
               href={href}
               onClick={(e) => handleNavClick(e, href)}
               className={cn(
-                'text-sm font-medium transition-colors cursor-pointer',
+                'text-base font-medium transition-colors cursor-pointer',
                 isActive(pathname, hash)
                   ? 'text-[#06b6d4] border-b-2 border-[#06b6d4] pb-0.5'
                   : 'text-[#cbc4d2] hover:text-[#06b6d4]',
@@ -139,7 +139,7 @@ const Navbar = () => {
         <div className='flex items-center gap-4'>
           <Link
             href='/#contact'
-            className='hidden md:block bg-[#06b6d4] text-[#09090b] px-6 py-2 font-bold rounded text-sm hover:bg-cyan-400 active:scale-95 transition-all cursor-pointer'
+            className='hidden md:block bg-[#06b6d4] text-[#09090b] px-6 py-2 font-bold rounded text-base hover:bg-cyan-400 active:scale-95 transition-all cursor-pointer'
           >
             Contact Me
           </Link>
@@ -195,7 +195,7 @@ const Navbar = () => {
                   setMobileOpen(false);
                 }}
                 className={cn(
-                  'text-base font-medium py-1 transition-colors',
+                  'text-lg font-medium py-1 transition-colors',
                   isActive(pathname, hash)
                     ? 'text-[#06b6d4]'
                     : 'text-[#cbc4d2] hover:text-[#06b6d4]',
@@ -207,7 +207,7 @@ const Navbar = () => {
             <Link
               href='/contact'
               onClick={() => setMobileOpen(false)}
-              className='bg-[#06b6d4] text-[#09090b] px-6 py-2 font-bold rounded text-sm hover:bg-cyan-400 transition-all text-center mt-2'
+              className='bg-[#06b6d4] text-[#09090b] px-6 py-2 font-bold rounded text-base hover:bg-cyan-400 transition-all text-center mt-2'
             >
               Hire Me
             </Link>
