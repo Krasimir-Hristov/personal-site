@@ -50,13 +50,16 @@ export const POST = async (req: Request): Promise<Response> => {
   const tools = {
     searchKnowledgeBase: tool({
       description:
-        "Semantic vector search over Krasimir's knowledge base — the ONLY source of facts about him (projects, tech stack, contact, bio, work history). Call this whenever the user asks something specific you have not retrieved earlier in this conversation. Reuse prior results from the same conversation instead of calling again for the same topic.",
+        "SEMANTIC SEARCH over Krasimir's vector knowledge base (Neon pgvector).\n" +
+        "ABSOLUTELY REQUIRED when the user asks about: Krasimir's projects, tech stack, skills, biography, work history, contact info, experience, or anything personal/professional about him.\n" +
+        'CRITICAL: You MUST call this tool — you do NOT know any of this information from your training data.\n' +
+        "Do NOT answer from memory. Call search first. Only if the search returns nothing, say you don't know.",
       inputSchema: z.object({
         query: z
           .string()
           .min(2)
           .describe(
-            "Focused natural-language search query, e.g. 'AI Savage project architecture' or 'Krasimir contact info' or 'experience with LangGraph'.",
+            'Focused natural-language search query, e.g. "AI Savage project architecture" or "Krasimir contact info" or "experience with LangGraph".',
           ),
       }),
       execute: async ({ query }) => {

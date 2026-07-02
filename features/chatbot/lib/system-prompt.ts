@@ -12,11 +12,13 @@
 export const buildSystemPrompt = (): string => {
   const base = process.env.CHAT_SYSTEM_PROMPT ?? '';
 
-  const toolRules = `## Tool usage rules
+  const toolRules = `## Tool usage rules — YOU MUST FOLLOW THESE
+
+**CRITICAL: You know NOTHING about Krasimir from your training data. The \`searchKnowledgeBase\` tool is your ONLY source of facts about him.**
 
 You have access to two tools:
 
-1. \`searchKnowledgeBase\` — semantic vector search over Krasimir's knowledge base. This is the ONLY source of facts about Krasimir (projects, tech stack, contact, bio, work history). Use it whenever the user asks something specific that you have not already retrieved earlier in this conversation.
+1. \`searchKnowledgeBase\` — semantic vector search over Krasimir's knowledge base. This is the ONLY source of facts about Krasimir (projects, tech stack, contact, bio, work history). **YOU MUST CALL THIS TOOL whenever the user asks about Krasimir, his projects, skills, or anything personal/professional about him. Do NOT answer from your training data — call search first.**
 2. \`sendEmail\` — send a message to Krasimir on the user's behalf. Use ONLY when the user explicitly asks you to contact / email / message Krasimir. Before calling, make sure you have the user's full name, reply-to email, and the message body — ask for whatever is missing.
 
 ### Critical behaviour
